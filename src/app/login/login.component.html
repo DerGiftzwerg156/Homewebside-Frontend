@@ -1,0 +1,28 @@
+<div class="login-screen">
+  <img src="assets/images/Logo.png"
+       alt="golf-ball"
+       class="login-screen__logo">
+
+  <h3 class="login-screen__username">Login</h3>
+
+  <!--Username-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+<!--      <i class="pi pi-arrow-circle-right" *ngIf="username.value"></i>-->
+      <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="username" placeholder="Enter Username">
+    </div>
+  </div>
+  <!--Password-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+<!--      <i class="pi pi-arrow-circle-right" *ngIf="password.value"></i>-->
+      <input pInputText type="password" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="password" placeholder="Enter Password">
+    </div>
+  </div>
+  <!-- Submit Button-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <button pButton type="button" label="Einloggen" class="p-button-success" (click)="login()"></button>
+    </div>
+  </div>
+</div>
