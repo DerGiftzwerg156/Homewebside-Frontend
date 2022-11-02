@@ -1,15 +1,15 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {BootComponent} from "./boot/boot.component";
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
+import {BootComponent} from "./core/boot/boot.component";
+import {LoginComponent} from "./core/login/login.component";
+import {RegisterComponent} from "./core/register/register.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/boot', pathMatch: 'full'},
-  {path: 'boot', component: BootComponent},
+  {path: '', component: BootComponent },
+  {path: 'boot', redirectTo: '', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: '**', redirectTo: '/boot'}
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

@@ -5,12 +5,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
 import {ButtonModule} from "primeng/button";
-import {BootComponent} from './boot/boot.component';
+import {BootComponent} from './core/boot/boot.component';
 import {ProgressBarModule} from "primeng/progressbar";
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './core/login/login.component';
 import {FormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
-import {RegisterComponent} from './register/register.component';
+import {RegisterComponent} from './core/register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
