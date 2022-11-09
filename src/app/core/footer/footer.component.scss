@@ -1,0 +1,17 @@
+@import "src/assets/styles/helpers";
+::ng-deep.footer {
+  @include bg-image($uri: '/assets/images/background.jpg', $size: cover, $position: center)
+}
+
+table {
+  border-spacing: 24px 6px;
+}
+
+link {
+
+}
+
+a {
+  color: white;
+  text-decoration-line: none;
+}

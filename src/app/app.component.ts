@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ConfirmationService} from "primeng/api";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Frontend';
+
+  loggedIn() {
+    sessionStorage.getItem('user')
+
+    return false
+  }
 }

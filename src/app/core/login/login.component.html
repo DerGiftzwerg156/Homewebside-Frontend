@@ -1,33 +1,33 @@
 <div class="login-screen">
   <img src="../../../assets/images/Logo.png"
-       alt="golf-ball"
+       alt="Logo"
        class="login-screen__logo">
 
-  <h3 class="login-screen__username">Login</h3>
+  <h3 class="login-screen__username">Anmelden</h3>
 
   <!--Username-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
-<!--      <i class="pi pi-arrow-circle-right" *ngIf="username.value"></i>-->
-      <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="username" placeholder="Enter Username">
+      <input pInputText type="email" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="loginData.mail"
+             placeholder="E-Mail">
     </div>
   </div>
   <!--Password-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
-<!--      <i class="pi pi-arrow-circle-right" *ngIf="password.value"></i>-->
-      <input pInputText type="password" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="password" placeholder="Enter Password">
+      <input pInputText type="password" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="loginData.password"
+             placeholder="Password">
     </div>
   </div>
   <!-- Submit Button-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
-      <button pButton type="button" label="Einloggen" class="submitButton" (click)="login()"></button>
+      <button pButton type="button" label="Anmelden" class="submitButton" (click)="login()"></button>
     </div>
   </div>
 
-<!--Link zur Register Seite-->
+  <!--Link zur Register Seite-->
   <div class="login-screen__password-hint">
-    <button class="invisibleButton" (click)="navigateToRegister()"> Noch kein Account? Jetzt Registrieren!</button>
+    <button class="invisibleButton" (click)="navigateToRegister()">Noch kein Account? Jetzt Registrieren!</button>
   </div>
 </div>

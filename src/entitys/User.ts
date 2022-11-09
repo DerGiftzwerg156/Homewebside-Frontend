@@ -1,9 +1,18 @@
-export class User{
-  username: string;
-  password: string;
+export class User {
+  userId: number;
+  firstName: string;
+  lastName: string;
+  mail: string;
+  password: number;
+  role: string;
 
-  constructor(username: string, password: string) {
-    this.username = username;
+
+  constructor(userId: number, firstName: string, lastName: string, mail: string, password: number, role: string) {
+    this.userId = userId;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.mail = mail;
     this.password = password;
+    this.role = role;
   }
 }

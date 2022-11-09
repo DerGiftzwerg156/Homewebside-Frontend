@@ -3,30 +3,44 @@
        alt="golf-ball"
        class="login-screen__logo">
 
-  <h3 class="login-screen__username">Register</h3>
+  <h3 class="login-screen__username">Registrieren</h3>
 
-  <!--Username-->
+  <!--FirstName-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
-      <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="username"
-             placeholder="Enter Username">
+      <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="firstName"
+             placeholder="Vorname">
+    </div>
+  </div>
+  <!--LastName-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="lastname"
+             placeholder="Nachname">
+    </div>
+  </div>
+  <!--Mail-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="mail"
+             placeholder="E-Mail">
     </div>
   </div>
   <!--Password-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
       <input pInputText type="password" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="password"
-             placeholder="Enter Password">
+             placeholder="Passwort">
     </div>
   </div>
   <!-- Submit Button-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
-      <button pButton type="button" label="Einloggen" class="submitButton" (click)="register()"></button>
+      <button pButton type="button" label="Anmelden" class="submitButton" (click)="register()"></button>
     </div>
   </div>
   <!--Link zur Register Seite-->
   <div class="login-screen__password-hint">
-    <button class="invisibleButton" (click)="navigateToLogin()"> Bereits Registriert? Jetzt hier einloggen.</button>
+    <button class="invisibleButton" (click)="navigateToLogin()"> Bereits Registriert? Jetzt hier anmelden.</button>
   </div>
 </div>

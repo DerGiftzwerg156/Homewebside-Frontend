@@ -8,8 +8,10 @@ import {Router} from "@angular/router";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  username: any;
   password: any;
+  mail: any;
+  lastname: any;
+  firstName: any;
 
   constructor(private loginService: LoginService, private router: Router) { }
 
@@ -17,7 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.loginService.register("Username", "test@test.de", "pw1234")
+    this.loginService.register("Keno","Dirks", "test@test.de", "pw1234")
     console.log("Register")
   }
 

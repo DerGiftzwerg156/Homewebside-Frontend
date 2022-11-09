@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ButtonModule} from "primeng/button";
 import {Router} from "@angular/router";
+import {LoginService} from "../../../services/login.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -9,16 +11,18 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  username: any;
-  password: any;
+  loginData = {mail: '', password: ''};
 
-  constructor(private router: Router) { }
+  loginForm !: FormGroup;
+
+  constructor(private router: Router, private loginService: LoginService) {
+  }
 
   ngOnInit(): void {
   }
 
   login() {
-    console.log("Du bist jetzt eingeloggt!")
+    this.loginService.login(this.loginData.mail, this.loginData.password)
   }
 
   navigateToRegister() {

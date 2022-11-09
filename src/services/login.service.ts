@@ -1,7 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {RegisterData} from "../entitys/RegisterData";
-import {User} from "../entitys/User";
+import {RegisterDataRequest} from "../requestTypes/RegisterDataRequest";
+import {Router} from "@angular/router";
+import {LoginReply} from "../replyes/LoginReply";
+import {LoginDataRequest} from "../requestTypes/LoginDataRequest";
+import {Reply} from "../replyes/Reply";
 
 @Injectable({
   providedIn: 'root'
@@ -9,29 +12,25 @@ import {User} from "../entitys/User";
 export class LoginService {
   standardUrl = "http://localhost:8080"
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
-  public register(username: string, mail: string, password: string) {
-    const registerData: RegisterData = new RegisterData(mail, username, password)
-    this.http.post<RegisterData>(this.standardUrl + "/register", registerData).subscribe(resp =>{
-      console.log("Registrierung erfolgreich")
+  public register(firstName: string, lastName: string, mail: string, password: string) {
+    const registerData: RegisterDataRequest = new RegisterDataRequest(firstName, lastName, mail, password)
+    this.http.post<Reply>(this.standardUrl + "/register", registerData).subscribe(resp => {
+      this.router.navigate(['/login'])
     })
   }
 
-  public login(username: string, password: string){
-    const user = new User(username, password)
-    this.http.post<boolean>(this.standardUrl + "/login", user).subscribe(resp =>{
-     if(resp.valueOf()){
-       sessionStorage.setItem('user', JSON.stringify(user))
-     }else {
-       console.log("Fehler bei der Anmeldung")
-     }
+  public login(username: string, password: string) {
+    const user = new LoginDataRequest(username, password)
+    this.http.post<LoginReply>(this.standardUrl + "/login", user).subscribe(resp => {
+      console.log(resp)
     })
 
   }
 
-  public logout(){
+  public logout() {
     sessionStorage.clear()
   }
 }

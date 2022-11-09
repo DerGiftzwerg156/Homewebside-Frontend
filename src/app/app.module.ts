@@ -12,13 +12,18 @@ import {FormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import {RegisterComponent} from './core/register/register.component';
 import {HttpClientModule} from "@angular/common/http";
+import { FooterComponent } from './core/footer/footer.component';
+import { NavbarComponent } from './core/navbar/navbar.component';
+import {DockModule} from 'primeng/dock';
 
 @NgModule({
   declarations: [
     AppComponent,
     BootComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,8 @@ import {HttpClientModule} from "@angular/common/http";
     ProgressBarModule,
     FormsModule,
     InputTextModule,
-    HttpClientModule
+    HttpClientModule,
+    DockModule
   ],
   providers: [],
   bootstrap: [AppComponent]

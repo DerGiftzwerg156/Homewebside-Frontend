@@ -1,7 +1,6 @@
 @import "src/assets/styles/helpers";
 
 ::ng-deep.login-screen {
-  @include bg-image($uri: '/assets/images/background.jpg', $size: cover, $position: center);
   @include flex($dir: column, $ai: center, $jc: center);
 
   height: 100vh;
