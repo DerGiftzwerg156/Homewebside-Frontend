@@ -1,0 +1,57 @@
+echo "Install generals"
+
+echo "Update and Upgrade"
+apt update && apt upgrade -y
+
+echo "Install Git"
+apt install git -y
+
+echo "Install Curl"
+apt install curl -y
+
+echo "Frontend Setup"
+
+echo "Install NodeJS and npm"
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+apt install nodejs -y
+
+echo "Install pm2"
+npm install pm2 -g
+
+echo "Install AngularCLI"
+npm install -g @angular/cli
+
+echo "Clone Frontend Repo"
+git clone https://github.com/DerGiftzwerg156/Homewebside-Frontend
+cd Homewebside-Frontend
+npm install
+
+echo "Start Frontend"
+pm2 start "ng serve --host 0.0.0.0 --disable-host-check"
+
+echo "Zurück ins Root verzeichnis"
+cd..
+
+echo "Backend Setup"
+
+echo "JDK 18 install"
+apt install openjdk-18-jre -y
+
+echo "Maven install"
+apt install maven -y
+
+echo "Clone Backend Repo"
+git clone https://github.com/DerGiftzwerg156/Homewebside-Backend
+cd Homewebside-Backend
+
+echo "Build Backend"
+mvn clean package
+
+echo "Start Backend"
+java -cp target/HomeWebsideBackend-0.0.1-SNAPSHOT.jar com.homewebside.homewebsidebackend.HomeWebsideBackendApplication
+
+
+
+
+
+
