@@ -19,8 +19,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.loginService.register("Keno","Dirks", "test@test.de", "pw1234")
-    console.log("Register")
+    this.loginService.register(this.firstName, this.lastname, this.mail, this.password)
   }
 
   navigateToLogin() {
