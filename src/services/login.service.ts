@@ -10,7 +10,7 @@ import {Reply} from "../replyes/Reply";
   providedIn: 'root'
 })
 export class LoginService {
-  standardUrl = "http://localhost:8080"
+  standardUrl = "http://192.168.178.73:8080"
 
   constructor(private http: HttpClient, private router: Router) {
   }
