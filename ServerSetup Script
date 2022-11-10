@@ -48,7 +48,7 @@ echo "Build Backend"
 mvn clean package
 
 echo "Start Backend"
-java -cp target/HomeWebsideBackend-0.0.1-SNAPSHOT.jar com.homewebside.homewebsidebackend.HomeWebsideBackendApplication
+pm2 start "java -cp target/HomeWebsideBackend-0.0.1-SNAPSHOT.jar com.homewebside.homewebsidebackend.HomeWebsideBackendApplication"
 
 
 

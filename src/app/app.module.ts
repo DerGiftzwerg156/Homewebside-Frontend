@@ -15,6 +15,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { FooterComponent } from './core/footer/footer.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import {DockModule} from 'primeng/dock';
+import { UserLoggedInComponent } from './user-logged-in/user-logged-in.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {DockModule} from 'primeng/dock';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserLoggedInComponent
   ],
   imports: [
     BrowserModule,

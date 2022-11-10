@@ -20,7 +20,7 @@ export class LoginService {
   public register(firstName: string, lastName: string, mail: string, password: string) {
     const registerData: RegisterDataRequest = new RegisterDataRequest(firstName, lastName, mail, password)
     this.http.post<Reply>(this.standardUrl + "/register", registerData).subscribe(resp => {
-      this.logger.log("register",resp)
+      this.logger.log("register", resp)
       this.router.navigate(['/login'])
     })
   }
@@ -28,7 +28,18 @@ export class LoginService {
   public login(username: string, password: string) {
     const user = new LoginDataRequest(username, password)
     this.http.post<LoginReply>(this.standardUrl + "/login", user).subscribe(resp => {
-      this.logger.log("login",resp)
+      if (resp.status) {
+        console.log("login", resp)
+        sessionStorage.setItem("firstName", resp.user.firstName)
+        sessionStorage.setItem("lastName", resp.user.lastName)
+        sessionStorage.setItem("mail", resp.user.mail)
+        sessionStorage.setItem("password", JSON.stringify(resp.user.password))
+        sessionStorage.setItem("role", resp.user.role)
+        this.router.navigate(['/userloggedin'])
+      } else {
+        this.logger.log("login", resp)
+      }
+
     })
 
   }

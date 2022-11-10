@@ -1,9 +1,9 @@
 import {User} from "../entitys/User";
 
 export class LoginReply {
-  private user: User;
+  user: User;
   private message: string;
-  private status: boolean;
+  status: boolean;
 
 
   constructor(user: User, message: string, status: boolean) {

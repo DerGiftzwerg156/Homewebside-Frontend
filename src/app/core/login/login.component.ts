@@ -13,8 +13,6 @@ export class LoginComponent implements OnInit {
 
   loginData = {mail: '', password: ''};
 
-  loginForm !: FormGroup;
-
   constructor(private router: Router, private loginService: LoginService) {
   }
 
