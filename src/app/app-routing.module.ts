@@ -5,6 +5,7 @@ import {LoginComponent} from "./core/login/login.component";
 import {RegisterComponent} from "./core/register/register.component";
 import {MainComponent} from "./main/main.component";
 import {AuthenticationGuard} from "./AuthenticationGuard";
+import {UserProfileComponent} from "./user-profile/user-profile.component";
 
 const routes: Routes = [
   {path: '', component: BootComponent},
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'main', component: MainComponent},
-  {path: '**', redirectTo: ''},
+  {path: 'profile', component: UserProfileComponent},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

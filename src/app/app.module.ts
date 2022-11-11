@@ -18,6 +18,8 @@ import { MainComponent } from './main/main.component';
 import {AuthenticationGuard} from "./AuthenticationGuard";
 import {AccordionModule} from "primeng/accordion";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     HttpClientModule,
     DockModule,
     AccordionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CardModule
   ],
   providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
