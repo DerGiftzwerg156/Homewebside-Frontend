@@ -1,10 +1,10 @@
 export class Reply{
-  private _message: string;
-  private _status: boolean;
+  public message: string;
+  public status: boolean;
 
 
   constructor(message: string, status: boolean) {
-    this._message = message;
-    this._status = status;
+    this.message = message;
+    this.status = status;
   }
 }

@@ -13,9 +13,11 @@ import {InputTextModule} from "primeng/inputtext";
 import {RegisterComponent} from './core/register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 import { FooterComponent } from './core/footer/footer.component';
-import { NavbarComponent } from './core/navbar/navbar.component';
 import {DockModule} from 'primeng/dock';
-import { UserLoggedInComponent } from './user-logged-in/user-logged-in.component';
+import { MainComponent } from './main/main.component';
+import {AuthenticationGuard} from "./AuthenticationGuard";
+import {AccordionModule} from "primeng/accordion";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,8 +26,7 @@ import { UserLoggedInComponent } from './user-logged-in/user-logged-in.component
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    NavbarComponent,
-    UserLoggedInComponent
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +36,11 @@ import { UserLoggedInComponent } from './user-logged-in/user-logged-in.component
     FormsModule,
     InputTextModule,
     HttpClientModule,
-    DockModule
+    DockModule,
+    AccordionModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,6 +1,6 @@
 @import "src/assets/styles/helpers";
-::ng-deep.footer {
-  @include bg-image($uri: '/assets/images/background.jpg', $size: cover, $position: center)
+.footer {
+  @include bg-image($uri: '/assets/images/background.jpg', $size: cover, $position: center);
 }
 
 table {

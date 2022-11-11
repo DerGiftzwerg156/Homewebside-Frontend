@@ -3,15 +3,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {BootComponent} from "./core/boot/boot.component";
 import {LoginComponent} from "./core/login/login.component";
 import {RegisterComponent} from "./core/register/register.component";
-import {NavbarComponent} from "./core/navbar/navbar.component";
-import {UserLoggedInComponent} from "./user-logged-in/user-logged-in.component";
+import {MainComponent} from "./main/main.component";
+import {AuthenticationGuard} from "./AuthenticationGuard";
 
 const routes: Routes = [
   {path: '', component: BootComponent},
   {path: 'boot', redirectTo: '', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'userloggedin', component: UserLoggedInComponent},
+  {path: 'main', component: MainComponent},
   {path: '**', redirectTo: ''},
 ];
 

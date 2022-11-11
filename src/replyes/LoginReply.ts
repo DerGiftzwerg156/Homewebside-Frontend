@@ -1,13 +1,15 @@
-import {User} from "../entitys/User";
-
 export class LoginReply {
-  user: User;
-  private message: string;
+  firstName: string;
+  token: string;
+  role: string;
+  message: string;
   status: boolean;
 
 
-  constructor(user: User, message: string, status: boolean) {
-    this.user = user;
+  constructor(firstName: string, token: string, role: string, message: string, status: boolean) {
+    this.firstName = firstName;
+    this.token = token;
+    this.role = role;
     this.message = message;
     this.status = status;
   }

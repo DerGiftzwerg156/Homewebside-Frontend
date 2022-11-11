@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from "../../../services/login.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../../services/auth.service";
+import {RegisterDataRequest} from "../../../requestTypes/RegisterDataRequest";
+import {LoggerService} from "../../../services/logger.service";
 
 @Component({
   selector: 'app-register',
@@ -13,13 +15,13 @@ export class RegisterComponent implements OnInit {
   lastname: any;
   firstName: any;
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private logger: LoggerService) { }
 
   ngOnInit(): void {
   }
 
   register() {
-    this.loginService.register(this.firstName, this.lastname, this.mail, this.password)
+    this.authService.register(new RegisterDataRequest(this.firstName, this.lastname, this.mail, this.password));
   }
 
   navigateToLogin() {
