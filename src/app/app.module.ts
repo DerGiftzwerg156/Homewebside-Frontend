@@ -20,6 +20,7 @@ import {AccordionModule} from "primeng/accordion";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import {CardModule} from "primeng/card";
+import {DialogModule} from "primeng/dialog";
 
 @NgModule({
   declarations: [
@@ -29,21 +30,22 @@ import {CardModule} from "primeng/card";
     RegisterComponent,
     FooterComponent,
     MainComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    ProgressBarModule,
-    FormsModule,
-    InputTextModule,
-    HttpClientModule,
-    DockModule,
-    AccordionModule,
-    BrowserAnimationsModule,
-    CardModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        ProgressBarModule,
+        FormsModule,
+        InputTextModule,
+        HttpClientModule,
+        DockModule,
+        AccordionModule,
+        BrowserAnimationsModule,
+        CardModule,
+        DialogModule
+    ],
   providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })

@@ -17,7 +17,7 @@
   </div>
   <div class="contentContainer">
     <div class="row">
-<!--      Generelle Infos-->
+      <!--      Generelle Infos-->
       <div class="row"></div>
       <div class="row"></div>
       <div class="row"></div>
@@ -27,25 +27,34 @@
             Vorname: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="firstName"><br>
             Nachname: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="lastName"><br>
             E-Mail:<input pInputText type="mail" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="mail"><br>
-            Rolle: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="role" disabled><br>
-            Passwort: <p-button label="Passwort ändern" icon="pi pi-arrow-right-arrow-left" styleClass="p-button-warning" (click)="changePassword()"></p-button><br>
+            Rolle: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="role"
+                          disabled><br>
+            Passwort:
+            <p-button label="Passwort ändern" icon="pi pi-arrow-right-arrow-left" styleClass="p-button-warning"
+                      (click)="openChangePassword()"></p-button>
+            <br>
           </div>
-          <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success" (click)="saveProfile()"></p-button>
+          <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success" (click)="editUser()"></p-button>
           <p-button label="Profil löschen" icon="pi pi-times" styleClass="p-button-danger"
-                    [style]="{'margin-left': '.5em'}"></p-button>
+                    [style]="{'margin-left': '.5em'}" (click)="deleteUser()"></p-button>
         </ng-template>
       </p-card>
-<!--      Adresse-->
+      <!--      Adresse-->
       <p-card header="Adresse" [style]="{width: '360px'}" styleClass="p-card-shadow">
         <ng-template pTemplate="footer">
           <div class="collumn">
-            Postleitzahl: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="adresse.plz"><br>
-            Ort: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="adresse.ort"><br>
-            Straße:<input pInputText type="mail" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="adresse.street"><br>
-            Hausnumme: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="adresse.houseNumber"><br>
-            Adress Zusatz: <input pInputText type="password" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="adresse.addressBonus"><br>
+            Postleitzahl: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                                 [(ngModel)]="address.plz"><br>
+            Ort: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="address.ort"><br>
+            Straße:<input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                          [(ngModel)]="address.street"><br>
+            Hausnummer: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                               [(ngModel)]="address.houseNumber"><br>
+            Adress Zusatz: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                                  [(ngModel)]="address.addressBonus"><br>
           </div>
-          <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success" (click)="saveAdress()"></p-button>
+          <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success"
+                    (click)="saveAddress()"></p-button>
         </ng-template>
       </p-card>
       <div class="row"></div>
@@ -54,3 +63,23 @@
     </div>
   </div>
 </div>
+
+
+<p-dialog header="Passwort ändern" [(visible)]="display" [style]="{width: '60vw'}">
+  <div class="row"></div>
+  <div class="row">
+    <div class="collumn">
+      Altes Passwort: <input pInputText type="password" class="p-inputtext-sm" autocomplete="on"
+                             [(ngModel)]="passwordChange.oldPassword"><br>
+      Neues Passwort: <input pInputText type="password" class="p-inputtext-sm" autocomplete="on"
+                             [(ngModel)]="passwordChange.newPassword" (change)="checkPasswords()"><br>
+      Altes Passwort: <input pInputText type="password" class="p-inputtext-sm" autocomplete="on"
+                             [(ngModel)]="passwordChange.confirmPassword" (change)="checkPasswords()"><br>
+    </div>
+  </div>
+  <div class="row"></div>
+  <ng-template pTemplate="footer">
+    <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success"
+              (click)="saveNewPassword()"></p-button>
+  </ng-template>
+</p-dialog>
