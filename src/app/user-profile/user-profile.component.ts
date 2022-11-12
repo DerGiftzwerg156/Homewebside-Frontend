@@ -21,7 +21,7 @@ export class UserProfileComponent implements OnInit {
   mail: string = "";
   role: string = "";
 
-  address: Adresse = new Adresse(0, "", "", "", "");
+  address: Adresse = new Adresse(null, null, null, null, null)
   display: boolean = false;
 
   passwordChange: PasswordChange = new PasswordChange("", "", "");
@@ -51,14 +51,19 @@ export class UserProfileComponent implements OnInit {
     console.log(this.passwordChange.newPassword)
     if (this.passwordChange.newPassword === this.passwordChange.confirmPassword) {
       this.userService.changePassword(new ChangePasswordRequest(sessionStorage.getItem("token")!, this.passwordChange.oldPassword, this.passwordChange.newPassword))
-      this.display=false
+      this.display = false
     } else {
       alert("Bitte Eingaben überprüfen!")
     }
   }
 
   saveAddress() {
-    this.userService.editAddress(new EditAddressRequest(sessionStorage.getItem("token")!, this.address.plz, this.address.ort, this.address.street, this.address.houseNumber, this.address.addressBonus))
+    if (this.address.plz != null && this.address.ort != null && this.address.street != null && this.address.houseNumber != null) {
+      if(this.address.addressBonus == null){
+        this.address.addressBonus = ""
+      }
+      this.userService.editAddress(new EditAddressRequest(sessionStorage.getItem("token")!, this.address.plz, this.address.ort, this.address.street, this.address.houseNumber, this.address.addressBonus))
+    }
   }
 
   deleteUser() {
@@ -81,8 +86,8 @@ export class UserProfileComponent implements OnInit {
   }
 
   checkPasswords() {
-    if(this.passwordChange.newPassword === this.passwordChange.confirmPassword){
+    if (this.passwordChange.newPassword === this.passwordChange.confirmPassword) {
       console.log(true)
-    }else console.log(false)
+    } else console.log(false)
   }
 }

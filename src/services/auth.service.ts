@@ -13,7 +13,8 @@ import {AuthenticationGuard} from "../app/AuthenticationGuard";
 })
 export class AuthService {
 
-  authUrl: string = window.location.origin+"/api/auth"
+  // authUrl: string = window.location.origin+"/api/auth"
+  authUrl: string = "http://localhost:8080/api/auth"
 
   constructor(private http: HttpClient, private router: Router, private logger: LoggerService) {
   }

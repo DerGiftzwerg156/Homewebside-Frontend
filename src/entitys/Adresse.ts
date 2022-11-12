@@ -1,16 +1,17 @@
-export class Adresse{
-  plz: number;
-  ort: string;
-  street: string;
-  houseNumber: string;
-  addressBonus: string;
+export class Adresse {
+  plz: number | null;
+  ort: string | null;
+  street: string | null;
+  houseNumber: string | null;
+  addressBonus: string | null;
 
 
-  constructor(plz: number, ort: string, street: string, houseNumber: string, addressBonus: string) {
+  constructor(plz: number | null, ort: string | null, street: string | null, houseNumber: string | null, addressBonus: string | null) {
     this.plz = plz;
     this.ort = ort;
     this.street = street;
     this.houseNumber = houseNumber;
     this.addressBonus = addressBonus;
   }
+
 }
