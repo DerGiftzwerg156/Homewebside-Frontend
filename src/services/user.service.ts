@@ -15,7 +15,7 @@ import {AuthService} from "./auth.service";
 })
 export class UserService {
 
-  standardUrl = "http://localhost:8080/user"
+  standardUrl = window.location.origin+"/user"
 
   constructor(private http: HttpClient, private logger: LoggerService, private authService: AuthService) {
   }
