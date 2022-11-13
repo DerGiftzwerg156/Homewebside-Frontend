@@ -5,6 +5,7 @@ import {Assignment} from "../../entitys/Assignment";
 import {PrimeNGConfig} from "primeng/api";
 import {AssignmentService} from "../../services/assignment.service";
 import {LoggerService} from "../../services/logger.service";
+import {AssignmentReplyData} from "../../entitys/AssignmentReplyData";
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,7 @@ import {LoggerService} from "../../services/logger.service";
 export class MainComponent implements OnInit {
 
   // @ts-ignore
-  assignments: Assignment[];
+  assignments: AssignmentReplyData[];
 
   constructor(private assignmentService: AssignmentService, private logger: LoggerService) {
   }

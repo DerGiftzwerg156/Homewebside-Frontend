@@ -1,11 +1,9 @@
-import {User} from "./User";
-import {AssignmentStatus} from "./AssignmentStatus";
+import {PlaColor} from "./PlaColor";
 
-export class Assignment {
+export class AssignmentReplyData {
   assignmentId: number;
-  user: any;
-  plaColor: any;
-  status: AssignmentStatus;
+  plaColor: PlaColor;
+  status: string;
   title: string;
   description: string;
   filamentLength: number;
@@ -13,9 +11,8 @@ export class Assignment {
   isPayed: boolean;
 
 
-  constructor(assignmentId: number, user: any, plaColor: any, status: AssignmentStatus, title: string, description: string, filamentLength: number, wattHours: number, isPayed: boolean) {
+  constructor(assignmentId: number, plaColor: PlaColor, status: string, title: string, description: string, filamentLength: number, wattHours: number, isPayed: boolean) {
     this.assignmentId = assignmentId;
-    this.user = user;
     this.plaColor = plaColor;
     this.status = status;
     this.title = title;
