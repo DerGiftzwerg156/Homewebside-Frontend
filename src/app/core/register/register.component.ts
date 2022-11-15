@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../../services/auth.service";
 import {RegisterDataRequest} from "../../../requestTypes/RegisterDataRequest";
-import {LoggerService} from "../../../services/logger.service";
 
 @Component({
   selector: 'app-register',
@@ -15,7 +14,7 @@ export class RegisterComponent implements OnInit {
   lastname: any;
   firstName: any;
 
-  constructor(private authService: AuthService, private router: Router, private logger: LoggerService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }

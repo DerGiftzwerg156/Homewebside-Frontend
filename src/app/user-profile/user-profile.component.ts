@@ -8,6 +8,7 @@ import {DeleteUserRequest} from "../../requestTypes/DeleteUserRequest";
 import {LoggerService} from "../../services/logger.service";
 import {PasswordChange} from "../../entitys/PasswordChange";
 import {ChangePasswordRequest} from "../../requestTypes/ChangePasswordRequest";
+import {MenuItem} from "primeng/api";
 
 @Component({
   selector: 'app-user-profile',
@@ -15,6 +16,9 @@ import {ChangePasswordRequest} from "../../requestTypes/ChangePasswordRequest";
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
+
+  // @ts-ignore
+  items: MenuItem[];
 
   firstName: string = "";
   lastName: string = "";
@@ -32,6 +36,22 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserData()
+    this.items = [
+      {
+        label: 'Bestellseite',
+        icon: 'pi pi-cog',
+        items: [{
+          label: 'Profil',
+          icon: 'pi pi-bars',
+          routerLink: '/main',
+        },
+          {
+            label: 'Abmelden',
+            icon: 'pi pi-lock',
+            routerLink: '/logout'
+          }]
+      }
+    ]
   }
 
   home() {
@@ -59,7 +79,7 @@ export class UserProfileComponent implements OnInit {
 
   saveAddress() {
     if (this.address.plz != null && this.address.ort != null && this.address.street != null && this.address.houseNumber != null) {
-      if(this.address.addressBonus == null){
+      if (this.address.addressBonus == null) {
         this.address.addressBonus = ""
       }
       this.userService.editAddress(new EditAddressRequest(sessionStorage.getItem("token")!, this.address.plz, this.address.ort, this.address.street, this.address.houseNumber, this.address.addressBonus))

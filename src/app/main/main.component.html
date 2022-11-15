@@ -1,12 +1,117 @@
-<div class="mainComponent">
+<div>
   <app-title-container></app-title-container>
   <div class="card">
-    <p-dataView [value]="assignments">
+    <p-dataView #dv [value]="assignments" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
+                [sortOrder]="sortOrder" layout="grid">
+      <ng-template pTemplate="header">
+        <div class="flex flex-column md:flex-row md:justify-content-between">
+          <p-button label="Neuer Auftrag" icon="pi pi-plus"
+                    (click)="openNewAssignmentModal()"></p-button>
+          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+
+        </div>
+      </ng-template>
+      <!--      Als List Items-->
       <ng-template let-assignment pTemplate="listItem">
-        <div>
-          {{assignment.assignmentId}}
+        <div class="col-12">
+          <div class="product-list-item">
+            <img src="favicon.ico" [alt]="assignment.title">
+            <div class="product-list-detail">
+              <div class="product-name">{{assignment.title}}</div>
+              <div class="product-description">{{assignment.description}}</div>
+            </div>
+            <div class="product-list-action">
+              <span *ngIf="assignment.status.assignmentStatusCode != 101" class="product-price">{{assignment.price}}
+                €</span>
+              <p-button
+                *ngIf="assignment.paymentStatus.paymentStatusCode == 201 && assignment.status.assignmentStatusCode != 101"
+                label="{{assignment.paymentStatus.paymentStatus}}"
+                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
+                styleClass="p-button-danger"></p-button>
+              <p-button
+                *ngIf="assignment.paymentStatus.paymentStatusCode == 202 && assignment.status.assignmentStatusCode != 101"
+                label="{{assignment.paymentStatus.paymentStatus}}"
+                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
+                styleClass="p-button-warning"></p-button>
+              <p-button
+                *ngIf="assignment.paymentStatus.paymentStatusCode == 203 && assignment.status.assignmentStatusCode != 101"
+                label="{{assignment.paymentStatus.paymentStatus}}"
+                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
+                styleClass="p-button-success"></p-button>
+              <span>{{assignment.status.assignmentStatus}}</span>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <!--      Als Grid Item-->
+      <ng-template let-assignment pTemplate="gridItem">
+        <div class="col-12 md:col-4">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+              <span
+                [class]="'product-badge status-'+assignment.status.assignmentStatusCode">{{assignment.status.assignmentStatus}}</span>
+            </div>
+            <div class="product-grid-item-content">
+              <img src="favicon.ico" [alt]="assignment.title">
+              <div class="product-name">{{assignment.title}}</div>
+              <div class="product-description">{{assignment.description}}</div>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span *ngIf="assignment.status.assignmentStatusCode != 101" class="product-price">{{assignment.price}}
+                €</span>
+              <p-button
+                *ngIf="assignment.paymentStatus.paymentStatusCode == 201 && assignment.status.assignmentStatusCode != 101"
+                label="{{assignment.paymentStatus.paymentStatus}}"
+                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
+                styleClass="p-button-danger"></p-button>
+              <p-button
+                *ngIf="assignment.paymentStatus.paymentStatusCode == 202 && assignment.status.assignmentStatusCode != 101"
+                label="{{assignment.paymentStatus.paymentStatus}}"
+                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
+                styleClass="p-button-warning"></p-button>
+              <p-button
+                *ngIf="assignment.paymentStatus.paymentStatusCode == 203 && assignment.status.assignmentStatusCode != 101"
+                label="{{assignment.paymentStatus.paymentStatus}}"
+                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
+                styleClass="p-button-success"></p-button>
+            </div>
+          </div>
         </div>
       </ng-template>
     </p-dataView>
   </div>
+  <p-toast position="bottom-center" key="messager"></p-toast>
 </div>
+
+<p-dialog header="Neuer Auftrag" [(visible)]="displayCreateNewAssignment" [style]="{width: '40vw'}" [modal]="true"
+          [maximizable]="true" [draggable]="true" [resizable]="true">
+  <div class="row"></div>
+  <div class="row">
+    <div class="collumn">
+      Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung"><br>
+      Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
+                             placeholder="Hier bitte eine genaue Beschreibung der Bestellung rein mit allen Daten die vorliegen."></textarea><br>
+      Farbe:
+      <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+      <br>
+      Versand:
+      <p-inputSwitch [(ngModel)]="newAssignment.versand"></p-inputSwitch>
+      <br>
+      Massivität:
+      <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+      <br>
+      Dateien:
+      <p-fileUpload name="myfile[]" url="./upload.php"></p-fileUpload>
+      <br>
+    </div>
+  </div>
+
+  <div class="row">
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success"
+              (click)="saveNewAssignment()"></p-button>
+  </ng-template>
+</p-dialog>
+
+

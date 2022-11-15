@@ -1,24 +1,31 @@
 import {PlaColor} from "./PlaColor";
+import {PaymentStatus} from "./PaymentStatus";
+import {AssignmentStatus} from "./AssignmentStatus";
+import {Assignment} from "./Assignment";
 
 export class AssignmentReplyData {
   assignmentId: number;
   plaColor: PlaColor;
-  status: string;
+  status: AssignmentStatus;
+  paymentStatus: PaymentStatus;
   title: string;
   description: string;
-  filamentLength: number;
-  wattHours: number;
+  filamentWeight: number;
+  hours: number;
+  price: number;
   isPayed: boolean;
 
 
-  constructor(assignmentId: number, plaColor: PlaColor, status: string, title: string, description: string, filamentLength: number, wattHours: number, isPayed: boolean) {
+  constructor(assignmentId: number, plaColor: PlaColor, status: AssignmentStatus, paymentStatus: PaymentStatus, title: string, description: string, filamentLength: number, wattHours: number, price: number, isPayed: boolean) {
     this.assignmentId = assignmentId;
     this.plaColor = plaColor;
     this.status = status;
+    this.paymentStatus = paymentStatus;
     this.title = title;
     this.description = description;
-    this.filamentLength = filamentLength;
-    this.wattHours = wattHours;
+    this.filamentWeight = filamentLength;
+    this.hours = wattHours;
+    this.price = price
     this.isPayed = isPayed;
   }
 }

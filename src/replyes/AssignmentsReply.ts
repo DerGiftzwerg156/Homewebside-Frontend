@@ -7,7 +7,7 @@ export class AssignmentsReply {
   reply: Reply;
 
 
-  constructor(assignments: Assignment[], reply: Reply) {
+  constructor(assignments: AssignmentReplyData[], reply: Reply) {
     this.assignments = assignments;
     this.reply = reply;
   }
