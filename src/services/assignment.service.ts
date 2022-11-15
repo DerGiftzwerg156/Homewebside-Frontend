@@ -11,8 +11,8 @@ import {Reply} from "../replyes/Reply";
 })
 export class AssignmentService {
 
-  // standardUrl: string = window.location.origin+"/api/auth"
-  standardUrl: string = "http://localhost:8080/api/assignments"
+  standardUrl: string = window.location.origin+"/api/assignments"
+  // standardUrl: string = "http://localhost:8080/api/assignments"
 
   status: string[] = ['Ordered', 'Payed', 'InProgress', 'InDelivery', 'Delivered', 'Canceled']
 
