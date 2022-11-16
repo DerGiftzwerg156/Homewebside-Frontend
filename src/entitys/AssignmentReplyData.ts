@@ -13,10 +13,9 @@ export class AssignmentReplyData {
   filamentWeight: number;
   hours: number;
   price: number;
-  isPayed: boolean;
 
 
-  constructor(assignmentId: number, plaColor: PlaColor, status: AssignmentStatus, paymentStatus: PaymentStatus, title: string, description: string, filamentLength: number, wattHours: number, price: number, isPayed: boolean) {
+  constructor(assignmentId: number, plaColor: PlaColor, status: AssignmentStatus, paymentStatus: PaymentStatus, title: string, description: string, filamentLength: number, wattHours: number, price: number) {
     this.assignmentId = assignmentId;
     this.plaColor = plaColor;
     this.status = status;
@@ -26,6 +25,5 @@ export class AssignmentReplyData {
     this.filamentWeight = filamentLength;
     this.hours = wattHours;
     this.price = price
-    this.isPayed = isPayed;
   }
 }

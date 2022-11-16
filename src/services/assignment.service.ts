@@ -2,7 +2,7 @@ import {HttpClient} from "@angular/common/http";
 import {Injectable} from '@angular/core';
 import {AssignmentsReply} from "../replyes/AssignmentsReply";
 import {StandardRequest} from "../requestTypes/StandardRequest";
-import {PlaColorReply} from "../replyes/PlaColorReply";
+import {ColorAndDeliveryOptionsReply} from "../replyes/ColorAndDeliveryOptionsReply";
 import {NewAssignmentRequest} from "../requestTypes/NewAssignmentRequest";
 import {Reply} from "../replyes/Reply";
 
@@ -11,8 +11,8 @@ import {Reply} from "../replyes/Reply";
 })
 export class AssignmentService {
 
-  standardUrl: string = window.location.origin+"/api/assignments"
-  // standardUrl: string = "http://localhost:8080/api/assignments"
+  // standardUrl: string = window.location.origin+"/api/assignments"
+  standardUrl: string = "http://localhost:8080/api/assignments"
 
   status: string[] = ['Ordered', 'Payed', 'InProgress', 'InDelivery', 'Delivered', 'Canceled']
 
@@ -23,8 +23,8 @@ export class AssignmentService {
     return this.http.post<AssignmentsReply>(this.standardUrl + "/getAllUserAssignments", new StandardRequest(sessionStorage.getItem("token")!))
   }
 
-  getPlaColors(){
-    return this.http.get<PlaColorReply>(this.standardUrl+"/getAllPlaColors")
+  getColorsAndDeliveryOptions(){
+    return this.http.get<ColorAndDeliveryOptionsReply>(this.standardUrl+"/getColorsAndDeliveryOptions")
   }
 
   saveNewAssignment(newAssignment: NewAssignmentRequest){

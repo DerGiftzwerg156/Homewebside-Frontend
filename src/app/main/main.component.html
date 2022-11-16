@@ -38,7 +38,7 @@
                 label="{{assignment.paymentStatus.paymentStatus}}"
                 [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
                 styleClass="p-button-success"></p-button>
-              <span>{{assignment.status.assignmentStatus}}</span>
+              <span><p-button label="{{assignment.status.assignmentStatus}}" [disabled]="true" styleClass="p-button-success"></p-button></span>
             </div>
           </div>
         </div>
@@ -49,7 +49,8 @@
           <div class="product-grid-item card">
             <div class="product-grid-item-top">
               <span
-                [class]="'product-badge status-'+assignment.status.assignmentStatusCode">{{assignment.status.assignmentStatus}}</span>
+                [class]="'product-badge status-'+assignment.status.assignmentStatusCode">
+                <p-button label="{{assignment.status.assignmentStatus}}" [disabled]="true" styleClass="p-button-success"></p-button> </span>
             </div>
             <div class="product-grid-item-content">
               <img src="favicon.ico" [alt]="assignment.title">
@@ -88,20 +89,28 @@
   <div class="row"></div>
   <div class="row">
     <div class="collumn">
-      Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung"><br>
+      Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung" style="margin-top: 5px"><br>
       Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
-                             placeholder="Hier bitte eine genaue Beschreibung der Bestellung rein mit allen Daten die vorliegen."></textarea><br>
+                             placeholder="Hier bitte eine genaue Beschreibung der Bestellung rein mit allen Daten die vorliegen." style="margin-top: 5px"></textarea><br>
       Farbe:
-      <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+      <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color" style="margin-top: 5px"></p-dropdown>
       <br>
       Versand:
-      <p-inputSwitch [(ngModel)]="newAssignment.versand"></p-inputSwitch>
+      <span style="margin-top: 5px">
+        <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
+        <p-checkbox name="deliveryOptionsGroup" value="deliveryOption" [value]="deliveryOption"
+                    [(ngModel)]="selectedDeliveryOption" [inputId]="deliveryOption.deliveryName"
+                    (onChange)="unselectAll(deliveryOption)"></p-checkbox>
+        <label for="deliveryOption.deliveryName"
+               title="{{deliveryOption.deliveryDescription}}">{{deliveryOption.deliveryName}}
+          | Preis: {{deliveryOption.deliveryPrice}}€</label>
+      </div></span>
       <br>
       Massivität:
-      <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+      <p-knob [(ngModel)]="newAssignment.infill" style="margin-top: 5px"></p-knob>
       <br>
       Dateien:
-      <p-fileUpload name="myfile[]" url="./upload.php"></p-fileUpload>
+      <p-fileUpload name="myfile[]" url="./upload.php" style="margin-top: 5px"></p-fileUpload>
       <br>
     </div>
   </div>

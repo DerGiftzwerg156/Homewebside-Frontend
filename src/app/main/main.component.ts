@@ -7,6 +7,7 @@ import {NewAssignmentRequest} from "../../requestTypes/NewAssignmentRequest";
 import {MessageService} from "primeng/api";
 import {PrimeNGConfig} from 'primeng/api';
 import {StandardRequest} from "../../requestTypes/StandardRequest";
+import {DeliveryOption} from "../../entitys/DeliveryOption";
 
 
 @Component({
@@ -20,6 +21,11 @@ export class MainComponent implements OnInit {
 
   // @ts-ignore
   plaColors: PlaColor[];
+
+  // @ts-ignore
+  deliveryOptions: DeliveryOption[];
+
+  selectedDeliveryOption: DeliveryOption[] = []
 
   // @ts-ignore
   newAssignment: NewAssignmentRequest;
@@ -41,7 +47,7 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.primengConfig.ripple = true;
     this.newAssignment = new NewAssignmentRequest(null, null, null, null, 50, null);
-    this.getColors()
+    this.getColorsAndDeliveryOptions()
     this.getAssignments()
   }
 
@@ -56,10 +62,11 @@ export class MainComponent implements OnInit {
     })
   }
 
-  getColors() {
-    this.assignmentService.getPlaColors().subscribe(res => {
+  getColorsAndDeliveryOptions() {
+    this.assignmentService.getColorsAndDeliveryOptions().subscribe(res => {
       if (res.reply.status) {
         this.plaColors = res.plaColors;
+        this.deliveryOptions = res.deliveryOptions;
         this.logger.log("getPlaColors", res.reply)
       } else {
         this.logger.log("getPlaColors", res.reply)
@@ -73,6 +80,7 @@ export class MainComponent implements OnInit {
 
   saveNewAssignment() {
     this.newAssignment.standardRequest = new StandardRequest(sessionStorage.getItem("token")!);
+    this.newAssignment.deliveryOption = this.selectedDeliveryOption[0];
     this.assignmentService.saveNewAssignment(this.newAssignment).subscribe(res => {
       if (res.status) {
         this.logger.log("saveNewAssignment", res);
@@ -85,7 +93,12 @@ export class MainComponent implements OnInit {
     });
   }
 
-  showMessage(message:string) {
+  showMessage(message: string) {
     this.messageService.add({key: 'messager', severity: 'success', summary: 'Success', detail: message});
+  }
+
+  unselectAll(deliveryOption: DeliveryOption) {
+    this.selectedDeliveryOption = [deliveryOption]
+
   }
 }

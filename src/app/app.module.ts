@@ -34,6 +34,7 @@ import {InputSwitchModule} from "primeng/inputswitch";
 import {KnobModule} from "primeng/knob";
 import {FileUploadModule} from "primeng/fileupload";
 import {ToastModule} from "primeng/toast";
+import {CheckboxModule} from "primeng/checkbox";
 
 @NgModule({
   declarations: [
@@ -44,34 +45,35 @@ import {ToastModule} from "primeng/toast";
     MainComponent,
     UserProfileComponent,
     TitleContainerComponent,
-    LogoutComponent,
+    LogoutComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ButtonModule,
-        ProgressBarModule,
-        FormsModule,
-        InputTextModule,
-        HttpClientModule,
-        DockModule,
-        AccordionModule,
-        BrowserAnimationsModule,
-        CardModule,
-        DialogModule,
-        DataViewModule,
-        DropdownModule,
-        RatingModule,
-        MenubarModule,
-        MessagesModule,
-        MessageModule,
-        PasswordModule,
-        InputTextareaModule,
-        InputSwitchModule,
-        KnobModule,
-        FileUploadModule,
-        ToastModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonModule,
+    ProgressBarModule,
+    FormsModule,
+    InputTextModule,
+    HttpClientModule,
+    DockModule,
+    AccordionModule,
+    BrowserAnimationsModule,
+    CardModule,
+    DialogModule,
+    DataViewModule,
+    DropdownModule,
+    RatingModule,
+    MenubarModule,
+    MessagesModule,
+    MessageModule,
+    PasswordModule,
+    InputTextareaModule,
+    InputSwitchModule,
+    KnobModule,
+    FileUploadModule,
+    ToastModule,
+    CheckboxModule
+  ],
   providers: [AuthenticationGuard],
   bootstrap: [AppComponent]
 })
