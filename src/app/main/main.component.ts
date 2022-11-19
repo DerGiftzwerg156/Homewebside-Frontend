@@ -83,18 +83,14 @@ export class MainComponent implements OnInit {
     this.newAssignment.deliveryOption = this.selectedDeliveryOption[0];
     this.assignmentService.saveNewAssignment(this.newAssignment).subscribe(res => {
       if (res.status) {
-        this.logger.log("saveNewAssignment", res);
         this.displayCreateNewAssignment = false;
-        this.showMessage(res.message)
+        this.logger.log("saveNewAssignment", res);
+        this.logger.showSuccess("Erfolg", res.message)
         this.ngOnInit();
       } else {
         this.logger.log("saveNewAssignment", res);
       }
     });
-  }
-
-  showMessage(message: string) {
-    this.messageService.add({key: 'messager', severity: 'success', summary: 'Success', detail: message});
   }
 
   unselectAll(deliveryOption: DeliveryOption) {

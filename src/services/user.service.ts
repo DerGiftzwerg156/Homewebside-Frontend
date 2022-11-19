@@ -24,26 +24,29 @@ export class UserService {
   deleteUser(deleteUserRequest: DeleteUserRequest) {
     this.http.post<Reply>(this.standardUrl + "/deleteUser", deleteUserRequest).subscribe(res => {
       this.logger.log("deleteUser", res)
+      this.logger.showSuccess("Profil erfolgreich gelöscht",res.message)
       this.authService.logout()
-
     })
   }
 
   editUser(editUserRequest: EditUserRequest) {
     this.http.post<Reply>(this.standardUrl + "/editUser", editUserRequest).subscribe(res => {
       this.logger.log("editUser", res)
+      this.logger.showSuccess("Profil erfolgreich aktualisiert",res.message)
     })
   }
 
   changePassword(changePasswordRequest: ChangePasswordRequest) {
     this.http.post<Reply>(this.standardUrl + "/changePassword", changePasswordRequest).subscribe(res => {
       this.logger.log("changePassword", res)
+      this.logger.showSuccess("Passwort erfolgreich geändert",res.message)
     })
   }
 
   editAddress(editAddressRequest: EditAddressRequest) {
     this.http.post<Reply>(this.standardUrl + "/editAddress", editAddressRequest).subscribe(res => {
       this.logger.log("editAddress", res)
+      this.logger.showSuccess("Adresse erfolgreich geändert", res.message)
     })
   }
 
