@@ -89,7 +89,7 @@
     <div class="collumn" style="padding: 0.5rem">
       Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung" style="margin-top: 5px"><br>
       Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
-                             placeholder="Hier bitte eine genaue Beschreibung der Bestellung rein mit allen Daten die vorliegen." style="margin-top: 5px"></textarea><br>
+                             placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw." style="margin-top: 5px"></textarea><br>
       Farbe:
       <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color" style="margin-top: 5px"></p-dropdown>
       <br>

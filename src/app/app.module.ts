@@ -35,6 +35,7 @@ import {KnobModule} from "primeng/knob";
 import {FileUploadModule} from "primeng/fileupload";
 import {ToastModule} from "primeng/toast";
 import {CheckboxModule} from "primeng/checkbox";
+import {MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -74,7 +75,7 @@ import {CheckboxModule} from "primeng/checkbox";
     ToastModule,
     CheckboxModule
   ],
-  providers: [AuthenticationGuard],
+  providers: [AuthenticationGuard,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

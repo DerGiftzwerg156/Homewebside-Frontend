@@ -5,6 +5,7 @@ import {StandardRequest} from "../requestTypes/StandardRequest";
 import {ColorAndDeliveryOptionsReply} from "../replyes/ColorAndDeliveryOptionsReply";
 import {NewAssignmentRequest} from "../requestTypes/NewAssignmentRequest";
 import {Reply} from "../replyes/Reply";
+import {LoggerService} from "./logger.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,7 @@ export class AssignmentService {
   // standardUrl: string = window.location.origin+"/api/assignments"
   standardUrl: string = "http://localhost:8080/api/assignments"
 
-  status: string[] = ['Ordered', 'Payed', 'InProgress', 'InDelivery', 'Delivered', 'Canceled']
-
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private logger:LoggerService) {
   }
 
   getAssignments() {

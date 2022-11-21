@@ -33,6 +33,13 @@
              placeholder="Passwort">
     </div>
   </div>
+  <!--Password confirmation-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <input pPassword type="password" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="passwordConfirm"
+             placeholder="Passwort bestätigen" [feedback]="false">
+    </div>
+  </div>
   <!-- Submit Button-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
