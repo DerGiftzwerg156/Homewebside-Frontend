@@ -67,7 +67,6 @@ export class UserProfileComponent implements OnInit {
   }
 
   saveNewPassword() {
-    console.log(this.passwordChange.confirmPassword)
     console.log(this.passwordChange.newPassword)
     if (this.passwordChange.newPassword === this.passwordChange.confirmPassword) {
       this.userService.changePassword(new ChangePasswordRequest(sessionStorage.getItem("token")!, this.passwordChange.oldPassword, this.passwordChange.newPassword))

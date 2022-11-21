@@ -4,10 +4,17 @@
 .collumn {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.spaceBetweenCards{
+  margin-top: 1rem;
+}
+
+.p-inputtext-sm{
+  margin-top: 0.5rem;
 }

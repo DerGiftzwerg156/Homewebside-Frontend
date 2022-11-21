@@ -84,11 +84,9 @@
   <p-toast position="bottom-center" key="messager"></p-toast>
 </div>
 
-<p-dialog header="Neuer Auftrag" [(visible)]="displayCreateNewAssignment" [style]="{width: '40vw'}" [modal]="true"
+<p-dialog header="Neuer Auftrag" [(visible)]="displayCreateNewAssignment" [style]="{width: '90vw'}" [modal]="true"
           [maximizable]="true" [draggable]="true" [resizable]="true">
-  <div class="row"></div>
-  <div class="row">
-    <div class="collumn">
+    <div class="collumn" style="padding: 0.5rem">
       Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung" style="margin-top: 5px"><br>
       Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
                              placeholder="Hier bitte eine genaue Beschreibung der Bestellung rein mit allen Daten die vorliegen." style="margin-top: 5px"></textarea><br>
@@ -113,7 +111,6 @@
       <p-fileUpload name="myfile[]" url="http://localhost:8080/api/upload" style="margin-top: 5px"></p-fileUpload>
       <br>
     </div>
-  </div>
 
   <div class="row">
   </div>

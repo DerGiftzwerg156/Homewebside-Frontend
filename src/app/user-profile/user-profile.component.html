@@ -1,66 +1,61 @@
-<p-card class="col-12 md:col-4">
-  <p-menubar [model]="items" >
-    <ng-template pTemplate="start" style="font-size: xxx-large"> 3D Druck Aufträge</ng-template>
-  </p-menubar>
-</p-card>
-<div class="collumn">
-<div class="row" style="margin-top: 25px; margin-bottom: 25px">
-  <!--      Generelle Infos-->
-  <div class="row"></div>
-  <div class="row"></div>
-  <div class="row"></div>
-  <p-card header="Generelle Infos" [style]="{width: '360px'}" styleClass="p-card-shadow">
-    <ng-template pTemplate="footer">
-      <div class="collumn">
-        Vorname: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="firstName"><br>
-        Nachname: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="lastName"><br>
-        E-Mail:<input pInputText type="mail" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="mail"><br>
-        Rolle: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="role"
-                      disabled><br>
-        Passwort:
-        <p-button label="Passwort ändern" icon="pi pi-arrow-right-arrow-left" styleClass="p-button-warning"
-                  (click)="openChangePassword()"></p-button>
-        <br>
-      </div>
-      <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success" (click)="editUser()"></p-button>
-      <p-button label="Profil löschen" icon="pi pi-times" styleClass="p-button-danger"
-                [style]="{'margin-left': '.5em'}" (click)="deleteUser()"></p-button>
-    </ng-template>
-  </p-card>
-  <!--      Adresse-->
-  <p-card header="Adresse" [style]="{width: '360px'}" styleClass="p-card-shadow">
-    <ng-template pTemplate="footer">
-      <div class="collumn">
-        Postleitzahl: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
-                             [(ngModel)]="address.plz"><br>
-        Ort: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="address.ort"><br>
-        Straße:<input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
-                      [(ngModel)]="address.street"><br>
-        Hausnummer: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
-                           [(ngModel)]="address.houseNumber"><br>
-        Adress Zusatz: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
-                              [(ngModel)]="address.addressBonus"><br>
-      </div>
-      <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success"
-                (click)="saveAddress()"></p-button>
-    </ng-template>
-  </p-card>
-  <div class="row"></div>
-  <div class="row"></div>
-  <div class="row"></div>
+<p-menubar [model]="items">
+  <ng-template pTemplate="start" style="font-size: xxx-large"> 3D Druck Aufträge</ng-template>
+</p-menubar>
+<!--      Generelle Infos-->
+<div class="row">
+  <div class="collumn">
+    <p-card header="Generelle Infos" [style]="{width: '80vw'}" styleClass="p-card-shadow" class="spaceBetweenCards">
+      <ng-template pTemplate="footer">
+        <div class="collumn">
+          Vorname: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="firstName"><br>
+          Nachname: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="lastName"><br>
+          E-Mail:<input pInputText type="mail" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="mail"><br>
+          Rolle: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="role"
+                        disabled><br>
+          Passwort:
+          <p-button label="Passwort ändern" icon="pi pi-arrow-right-arrow-left" styleClass="p-button-warning"
+                    (click)="openChangePassword()"></p-button>
+          <br>
+        </div>
+        <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success" (click)="editUser()"></p-button>
+        <p-button label="Profil löschen" icon="pi pi-times" styleClass="p-button-danger"
+                  [style]="{'margin-top': '.5em'}" (click)="deleteUser()"></p-button>
+      </ng-template>
+    </p-card>
+    <!--      Adresse-->
+    <p-card header="Adresse" [style]="{width: '80vw'}" styleClass="p-card-shadow" class="spaceBetweenCards">
+      <ng-template pTemplate="footer">
+        <div class="collumn">
+          Postleitzahl: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                               [(ngModel)]="address.plz"><br>
+          Ort: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="address.ort"><br>
+          Straße:<input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                        [(ngModel)]="address.street"><br>
+          Hausnummer: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                             [(ngModel)]="address.houseNumber"><br>
+          Adress Zusatz: <input pInputText type="text" class="p-inputtext-sm" autocomplete="on"
+                                [(ngModel)]="address.addressBonus"><br>
+        </div>
+        <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success"
+                  (click)="saveAddress()"></p-button>
+      </ng-template>
+    </p-card>
+  </div>
 </div>
-</div>
-
+<!--Passwort ändern Modal-->
 <p-dialog header="Passwort ändern" [(visible)]="display" [style]="{width: '60vw'}">
   <div class="row"></div>
   <div class="row">
     <div class="collumn">
-      Altes Passwort: <input pPassword type="password" class="p-inputtext-sm" autocomplete="on"
-                             [(ngModel)]="passwordChange.oldPassword" [feedback]="false"><br>
-      Neues Passwort: <input pPassword type="password" class="p-inputtext-sm" autocomplete="on"
-                             [(ngModel)]="passwordChange.newPassword" (change)="checkPasswords()"><br>
-      Altes Passwort: <input pPassword type="password" class="p-inputtext-sm" autocomplete="on"
-                             [(ngModel)]="passwordChange.confirmPassword" (change)="checkPasswords()"><br>
+      Altes Passwort:
+      <p-password [(ngModel)]="passwordChange.oldPassword" [toggleMask]="true" [feedback]="false" class="p-inputtext-sm"></p-password>
+      <br>
+      Neues Passwort:
+      <p-password [(ngModel)]="passwordChange.newPassword" [toggleMask]="true" [feedback]="false" (change)="checkPasswords()" class="p-inputtext-sm"></p-password>
+      <br>
+      Passwort bestätigen:
+      <p-password [(ngModel)]="passwordChange.confirmPassword" [toggleMask]="true" [feedback]="false" (change)="checkPasswords()" class="p-inputtext-sm"></p-password>
+      <br>
     </div>
   </div>
   <div class="row"></div>
