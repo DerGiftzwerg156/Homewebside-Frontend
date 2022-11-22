@@ -37,6 +37,9 @@ import {ToastModule} from "primeng/toast";
 import {CheckboxModule} from "primeng/checkbox";
 import {MessageService} from "primeng/api";
 import { ActivateAccountComponent } from './core/activate-account/activate-account.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { DatenschutzComponent } from './core/datenschutz/datenschutz.component';
+import { AgbComponent } from './core/agb/agb.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +51,10 @@ import { ActivateAccountComponent } from './core/activate-account/activate-accou
     UserProfileComponent,
     TitleContainerComponent,
     LogoutComponent,
-    ActivateAccountComponent
+    ActivateAccountComponent,
+    FooterComponent,
+    DatenschutzComponent,
+    AgbComponent
   ],
   imports: [
     BrowserModule,

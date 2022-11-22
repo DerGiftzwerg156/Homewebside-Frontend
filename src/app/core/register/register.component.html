@@ -40,12 +40,14 @@
              placeholder="Passwort bestätigen" [feedback]="false">
     </div>
   </div>
-  <!-- Submit Button-->
+    <!-- Submit Button-->
   <div class="login-screen__input">
     <div class="p-input-icon-right">
       <button pButton type="button" label="Registrieren" class="submitButton" (click)="register()"></button>
     </div>
   </div>
+<!--  Datenschutzerklärung und AGB-->
+  Mit ihrer Registrierung erklären Sie sich mit unseren <a routerLink="/agb"> Allgemeinen Geschäftsbedingungen</a> einverstanden. Bitte lesen sie unsere <a routerLink="/datenschutz"> Datenschutzerklärungen</a>.
   <!--Link zur Register Seite-->
   <div class="login-screen__password-hint">
     <button class="invisibleButton" (click)="navigateToLogin()"> Bereits Registriert? Jetzt hier anmelden.</button>
