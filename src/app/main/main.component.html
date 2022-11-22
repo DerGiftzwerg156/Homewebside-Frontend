@@ -1,46 +1,13 @@
 <div>
   <app-title-container></app-title-container>
   <div class="card">
-    <p-dataView #dv [value]="assignments" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
+    <p-dataView [value]="assignments" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
                 [sortOrder]="sortOrder" layout="grid">
       <ng-template pTemplate="header">
         <div class="flex flex-column md:flex-row md:justify-content-between">
           <p-button label="Neuer Auftrag" icon="pi pi-plus"
                     (click)="openNewAssignmentModal()"></p-button>
-          <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
 
-        </div>
-      </ng-template>
-      <!--      Als List Items-->
-      <ng-template let-assignment pTemplate="listItem">
-        <div class="col-12">
-          <div class="product-list-item">
-            <img src="favicon.ico" [alt]="assignment.title">
-            <div class="product-list-detail">
-              <div class="product-name">{{assignment.title}}</div>
-              <div class="product-description">{{assignment.description}}</div>
-            </div>
-            <div class="product-list-action">
-              <span *ngIf="assignment.status.assignmentStatusCode != 101" class="product-price">{{assignment.price}}
-                €</span>
-              <p-button
-                *ngIf="assignment.paymentStatus.paymentStatusCode == 201 && assignment.status.assignmentStatusCode != 101"
-                label="{{assignment.paymentStatus.paymentStatus}}"
-                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
-                styleClass="p-button-danger"></p-button>
-              <p-button
-                *ngIf="assignment.paymentStatus.paymentStatusCode == 202 && assignment.status.assignmentStatusCode != 101"
-                label="{{assignment.paymentStatus.paymentStatus}}"
-                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
-                styleClass="p-button-warning"></p-button>
-              <p-button
-                *ngIf="assignment.paymentStatus.paymentStatusCode == 203 && assignment.status.assignmentStatusCode != 101"
-                label="{{assignment.paymentStatus.paymentStatus}}"
-                [disabled]="assignment.paymentStatus.paymentStatusCode == 203 ||assignment.paymentStatus.paymentStatusCode == 202"
-                styleClass="p-button-success"></p-button>
-              <span><p-button label="{{assignment.status.assignmentStatus}}" [disabled]="true" styleClass="p-button-success"></p-button></span>
-            </div>
-          </div>
         </div>
       </ng-template>
       <!--      Als Grid Item-->
@@ -50,10 +17,11 @@
             <div class="product-grid-item-top">
               <span
                 [class]="'product-badge status-'+assignment.status.assignmentStatusCode">
-                <p-button label="{{assignment.status.assignmentStatus}}" [disabled]="true" styleClass="p-button-success"></p-button> </span>
+                <p-button label="{{assignment.status.assignmentStatus}}" [disabled]="true"
+                          styleClass="p-button-success"></p-button> </span>
             </div>
             <div class="product-grid-item-content">
-              <img src="favicon.ico" [alt]="assignment.title">
+<!--              <img src="favicon.ico" [alt]="assignment.title">-->
               <div class="product-name">{{assignment.title}}</div>
               <div class="product-description">{{assignment.description}}</div>
             </div>
@@ -86,15 +54,18 @@
 
 <p-dialog header="Neuer Auftrag" [(visible)]="displayCreateNewAssignment" [style]="{width: '90vw'}" [modal]="true"
           [maximizable]="true" [draggable]="true" [resizable]="true">
-    <div class="collumn" style="padding: 0.5rem">
-      Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung" style="margin-top: 5px"><br>
-      Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
-                             placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw." style="margin-top: 5px"></textarea><br>
-      Farbe:
-      <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color" style="margin-top: 5px"></p-dropdown>
-      <br>
-      Versand:
-      <span style="margin-top: 5px">
+  <div class="collumn" style="padding: 0.5rem">
+    Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung"
+                 style="margin-top: 5px"><br>
+    Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
+                           placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw."
+                           style="margin-top: 5px"></textarea><br>
+    Farbe:
+    <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"
+                style="margin-top: 5px"></p-dropdown>
+    <br>
+    Versand:
+    <span style="margin-top: 5px">
         <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
         <p-checkbox name="deliveryOptionsGroup" value="deliveryOption" [value]="deliveryOption"
                     [(ngModel)]="selectedDeliveryOption" [inputId]="deliveryOption.deliveryName"
@@ -103,11 +74,11 @@
                title="{{deliveryOption.deliveryDescription}}">{{deliveryOption.deliveryName}}
           | Preis: {{deliveryOption.deliveryPrice}}€</label>
       </div></span>
-      <br>
-      Massivität:
-      <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
-      <br>
-    </div>
+    <br>
+    Massivität:
+    <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+    <br>
+  </div>
 
   <div class="row">
   </div>

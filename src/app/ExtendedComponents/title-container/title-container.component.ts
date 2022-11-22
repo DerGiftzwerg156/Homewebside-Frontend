@@ -17,11 +17,11 @@ export class TitleContainerComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Settings',
-        icon: 'pi pi-cog',
+        label: 'Profil',
+        icon: 'pi pi-user',
         items: [{
-          label: 'Profil',
-          icon: 'pi pi-user',
+          label: 'Einstellungen',
+          icon: 'pi pi-cog',
           routerLink: '/profile',
         },
           {
