@@ -7,14 +7,15 @@ import {Reply} from "../replyes/Reply";
 import {Router} from "@angular/router";
 import {LoggerService} from "./logger.service";
 import {StandardRequest} from "../requestTypes/StandardRequest";
+import {ActivateAccountRequest} from "../requestTypes/ActivateAccountRequest";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  authUrl: string = window.location.origin+"/api/auth"
-  // authUrl: string = "http://localhost:8080/api/auth"
+  // authUrl: string = window.location.origin+"/api/auth"
+  authUrl: string = "http://localhost:8080/api/auth"
 
   constructor(private http: HttpClient, private router: Router, private logger: LoggerService) {
   }
@@ -45,7 +46,7 @@ export class AuthService {
       } else {
         this.logger.log("register", res)
         this.logger.showSuccess("Erfolgreich Registriert", res.message)
-        this.router.navigate(['/login'])
+        this.router.navigate(['/activateAccount'])
       }
     }, err => {
       this.logger.showError("Fehler", "Leider ist ein Fehler aufgetreten, bitte erneut versuchen.")
@@ -62,5 +63,9 @@ export class AuthService {
   public isAuthenticated() {
     const token = sessionStorage.getItem("token")!
     return this.http.post<Reply>(this.authUrl + "/validateToken", new StandardRequest(token))
+  }
+
+  activateAccount(verificationCode: string) {
+    return this.http.post<Reply>(this.authUrl+"/activateAccount", new ActivateAccountRequest(verificationCode))
   }
 }

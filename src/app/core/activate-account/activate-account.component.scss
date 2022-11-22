@@ -1,0 +1,38 @@
+@import "src/assets/styles/helpers";
+
+.login-screen {
+  @include flex($dir: column, $ai: center, $jc: center);
+
+  &__username {
+    color: var(--mac-grey);
+    text-shadow: 1px 1px var(--dark-0);
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    margin-bottom: 1rem;
+
+    .p-inputtext {
+      border-radius: 25px;
+      padding-left: 20px;
+
+    }
+  }
+}
+
+.invisibleButton {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+
+.submitButton {
+  font-size: large;
+  background-repeat: no-repeat;
+  border-width: thin;
+  border-radius: 30px;
+}

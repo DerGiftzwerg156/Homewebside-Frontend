@@ -36,6 +36,7 @@ import {FileUploadModule} from "primeng/fileupload";
 import {ToastModule} from "primeng/toast";
 import {CheckboxModule} from "primeng/checkbox";
 import {MessageService} from "primeng/api";
+import { ActivateAccountComponent } from './core/activate-account/activate-account.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {MessageService} from "primeng/api";
     MainComponent,
     UserProfileComponent,
     TitleContainerComponent,
-    LogoutComponent
+    LogoutComponent,
+    ActivateAccountComponent
   ],
   imports: [
     BrowserModule,

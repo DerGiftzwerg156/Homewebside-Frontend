@@ -1,0 +1,21 @@
+<div class="login-screen" style="padding: 5%;">
+  <img src="../../../assets/images/Logo.png"
+       alt="Logo"
+       class="login-screen__logo">
+
+  <h3 class="login-screen__username">Account Aktivieren</h3>
+
+  <!--Username-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <input pInputText type="email" class="p-inputtext-sm" autocomplete="on" [(ngModel)]="verificationCode"
+             placeholder="E-Mail">
+    </div>
+  </div>
+  <!-- Submit Button-->
+  <div class="login-screen__input">
+    <div class="p-input-icon-right">
+      <button pButton type="button" label="Account Verifizieren" class="submitButton" (click)="activateAccount(verificationCode)"></button>
+    </div>
+  </div>
+</div>
