@@ -50,11 +50,17 @@
     Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="selectedProduct.productDescription"
                            placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw."
                            style="margin-top: 5px" disabled></textarea><br>
-    Farbe:
-    <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
-    <br>
-    Versand:
-    <span style="margin-top: 5px">
+    <table>
+      <tr>
+        <th>Farbe</th>
+        <th>Versand</th>
+        <th>Massivität</th>
+      </tr>
+      <tr>
+        <td>
+          <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+        </td>
+        <td><span style="margin-top: 5px">
         <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
         <p-checkbox name="deliveryOptionsGroup" value="deliveryOption" [value]="deliveryOption"
                     [(ngModel)]="selectedDeliveryOption" [inputId]="deliveryOption.deliveryName"
@@ -62,11 +68,12 @@
         <label for="deliveryOption.deliveryName"
                title="{{deliveryOption.deliveryDescription}}">{{deliveryOption.deliveryName}}
           | Preis: {{deliveryOption.deliveryPrice}}€</label>
-      </div></span>
-    <br>
-    Massivität:
-    <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
-    <br>
+      </div></span></td>
+        <td>
+          <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="row">
@@ -90,17 +97,17 @@
     Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
                            placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw."
                            style="margin-top: 5px"></textarea><br>
-      <table>
-        <tr>
-          <th>Farbe</th>
-          <th>Versand</th>
-          <th>Massivität</th>
-        </tr>
-        <tr>
-          <td>
-            <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
-          </td>
-          <td>
+    <table>
+      <tr>
+        <th>Farbe</th>
+        <th>Versand</th>
+        <th>Massivität</th>
+      </tr>
+      <tr>
+        <td>
+          <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+        </td>
+        <td>
           <span style="margin-top: 5px">
         <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
         <p-checkbox name="deliveryOptionsGroup" value="deliveryOption" [value]="deliveryOption"
@@ -110,12 +117,12 @@
                title="{{deliveryOption.deliveryDescription}}">{{deliveryOption.deliveryName}}
           | Preis: {{deliveryOption.deliveryPrice}}€</label>
       </div></span>
-          </td>
-          <td>
-            <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
-          </td>
-        </tr>
-      </table>
+        </td>
+        <td>
+          <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+        </td>
+      </tr>
+    </table>
   </div>
 
   <div class="row">
