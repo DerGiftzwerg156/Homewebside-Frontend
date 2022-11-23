@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {Adresse} from "../../entitys/Adresse";
+import {Adresse} from "../../../entitys/Adresse";
 import {Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
-import {EditUserRequest} from "../../requestTypes/EditUserRequest";
-import {EditAddressRequest} from "../../requestTypes/EditAddressRequest";
-import {DeleteUserRequest} from "../../requestTypes/DeleteUserRequest";
-import {LoggerService} from "../../services/logger.service";
-import {PasswordChange} from "../../entitys/PasswordChange";
-import {ChangePasswordRequest} from "../../requestTypes/ChangePasswordRequest";
+import {UserService} from "../../../services/user.service";
+import {EditUserRequest} from "../../../requestTypes/EditUserRequest";
+import {EditAddressRequest} from "../../../requestTypes/EditAddressRequest";
+import {DeleteUserRequest} from "../../../requestTypes/DeleteUserRequest";
+import {LoggerService} from "../../../services/logger.service";
+import {PasswordChange} from "../../../entitys/PasswordChange";
+import {ChangePasswordRequest} from "../../../requestTypes/ChangePasswordRequest";
 import {MenuItem} from "primeng/api";
 
 @Component({

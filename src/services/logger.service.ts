@@ -21,10 +21,10 @@ export class LoggerService {
   }
 
   showInfo(summary:string,message:string){
-    this.messageService.add({key: 'info', severity: 'success', summary: summary, detail: message});
+    this.messageService.add({key: 'messager', severity: 'info', summary: summary, detail: message});
   }
 
   showWarn(summary:string,message:string){
-    this.messageService.add({key: 'warn', severity: 'success', summary: summary, detail: message});
+    this.messageService.add({key: 'messager', severity: 'warn', summary: summary, detail: message});
   }
 }

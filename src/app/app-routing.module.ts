@@ -2,19 +2,19 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginComponent} from "./core/login/login.component";
 import {RegisterComponent} from "./core/register/register.component";
-import {MainComponent} from "./main/main.component";
-import {UserProfileComponent} from "./user-profile/user-profile.component";
+import {MainComponent} from "./UserSides/AssignmentShow/main.component";
+import {UserProfileComponent} from "./UserSides/user-profile/user-profile.component";
 import {LogoutComponent} from "./core/logout/logout.component";
 import {AuthGuardService} from "../services/auth-guard.service";
 import {ActivateAccountComponent} from "./core/activate-account/activate-account.component";
 import {DatenschutzComponent} from "./core/datenschutz/datenschutz.component";
 import {AgbComponent} from "./core/agb/agb.component";
+import {ShopOverviewComponent} from "./Shop/shop-overview/shop-overview.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', component: ShopOverviewComponent},
   {path: 'datenschutz', component: DatenschutzComponent},
-  {path:'agb',component: AgbComponent},
-  {path: 'boot', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'agb', component: AgbComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
   {path: 'register', component: RegisterComponent},

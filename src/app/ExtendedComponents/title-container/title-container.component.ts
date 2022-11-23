@@ -8,14 +8,15 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./title-container.component.scss']
 })
 export class TitleContainerComponent implements OnInit {
-  // @ts-ignore
-  items: MenuItem[];
+
+  itemsWhenLoggedIn!: MenuItem[];
+  itemsWhenLoggedOut!: MenuItem[];
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-    this.items = [
+    this.itemsWhenLoggedIn = [
       {
         label: 'Profil',
         icon: 'pi pi-user',
@@ -23,6 +24,7 @@ export class TitleContainerComponent implements OnInit {
           label: 'Einstellungen',
           icon: 'pi pi-cog',
           routerLink: '/profile',
+
         },
           {
             label: 'Abmelden',
@@ -31,10 +33,15 @@ export class TitleContainerComponent implements OnInit {
           }]
       }
     ]
+    this.itemsWhenLoggedOut = [
+      {
+        label: 'Login',
+        icon: 'pi pi-lock-open',
+        routerLink: '/login'
+      }]
   }
 
-  openProfile() {
-    this.router.navigate(['/profile'])
+  checkLogin() {
+    return sessionStorage.getItem("token") != null;
   }
-
 }

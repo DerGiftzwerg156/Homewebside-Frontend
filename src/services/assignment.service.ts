@@ -12,21 +12,21 @@ import {LoggerService} from "./logger.service";
 })
 export class AssignmentService {
 
-  standardUrl: string = window.location.origin+"/api/assignments"
-  // standardUrl: string = "http://localhost:8080/api/assignments"
+  // standardUrl: string = window.location.origin + "/api/assignments"
+  standardUrl: string = "http://localhost:8080/api/assignments"
 
-  constructor(private http: HttpClient, private logger:LoggerService) {
+  constructor(private http: HttpClient, private logger: LoggerService) {
   }
 
   getAssignments() {
     return this.http.post<AssignmentsReply>(this.standardUrl + "/getAllUserAssignments", new StandardRequest(sessionStorage.getItem("token")!))
   }
 
-  getColorsAndDeliveryOptions(){
-    return this.http.get<ColorAndDeliveryOptionsReply>(this.standardUrl+"/getColorsAndDeliveryOptions")
+  getColorsAndDeliveryOptions() {
+    return this.http.get<ColorAndDeliveryOptionsReply>(this.standardUrl + "/getColorsAndDeliveryOptions")
   }
 
-  saveNewAssignment(newAssignment: NewAssignmentRequest){
-    return this.http.post<Reply>(this.standardUrl+"/createNewAssignment", newAssignment)
+  saveNewAssignment(newAssignment: NewAssignmentRequest) {
+    return this.http.post<Reply>(this.standardUrl + "/createNewAssignment", newAssignment)
   }
 }

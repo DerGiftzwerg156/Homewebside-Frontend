@@ -1,3 +1,7 @@
-<p-menubar [model]="items">
+<p-menubar *ngIf="checkLogin()" [model]="itemsWhenLoggedIn">
+  <ng-template pTemplate="start" ><h1 routerLink='/main'>3D Druck Aufträge</h1> </ng-template>
+</p-menubar>
+
+<p-menubar *ngIf="!checkLogin()" [model]="itemsWhenLoggedOut">
   <ng-template pTemplate="start" ><h1 routerLink='/main'>3D Druck Aufträge</h1> </ng-template>
 </p-menubar>

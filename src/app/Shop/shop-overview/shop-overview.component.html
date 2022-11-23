@@ -1,0 +1,127 @@
+<div>
+  <app-title-container></app-title-container>
+</div>
+
+<div class="card">
+  <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
+              [sortOrder]="sortOrder" layout="grid">
+    <ng-template pTemplate="header">
+      <div class="flex flex-column md:flex-row md:justify-content-between">
+        <p-dropdown [options]="sortOptions" placeholder="Sortieren nach Preis" (onChange)="onSortChange($event)"
+                    styleClass="mb-2 md:mb-0"></p-dropdown>
+        <p-button *ngIf="checkLogin()" label="Neuer Spezial Auftrag" icon="pi pi-plus"
+                  (click)="openNewAssignmentModal()"></p-button>
+        <!--        Suche später erneuern-->
+        <!--        <span class="p-input-icon-left mb-2 md:mb-0">-->
+        <!--          <i class="pi pi-search"></i>-->
+        <!--          <input type="search" [(ngModel)]="searchText" pInputText placeholder="Search by Name"-->
+        <!--                 (input)="dv.filter($event.target.value)">-->
+        <!--        </span>-->
+      </div>
+    </ng-template>
+    <!--      Als Grid Item-->
+    <ng-template let-product pTemplate="gridItem">
+      <div class="col-12 md:col-4">
+        <div class="product-grid-item card">
+          <div class="product-grid-item-top">
+          </div>
+          <div class="product-grid-item-content">
+            <div class="product-name">{{product.productName}}</div>
+            <!--Bild später abrufen von Server-->
+            <img src="favicon.ico" [alt]="product.productName">
+            <div class="product-description">{{product.productDescription}}</div>
+          </div>
+          <div class="product-grid-item-bottom">
+            <span class="product-price">{{product.productPrice}} €</span>
+            <p-button label="Produkt bestellen" (onClick)="selectProduct(product)"></p-button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
+  <p-toast position="bottom-center" key="messager"></p-toast>
+</div>
+
+<!--Dialog für Produkt bestellen-->
+<p-dialog header="{{selectedProduct.productName}}" [(visible)]="displaySelectedProduct" [style]="{width: '90vw'}"
+          [modal]="true"
+          [maximizable]="true" [draggable]="true" [resizable]="true">
+  <div class="collumn" style="padding: 0.5rem">
+    Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="selectedProduct.productDescription"
+                           placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw."
+                           style="margin-top: 5px" disabled></textarea><br>
+    Farbe:
+    <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+    <br>
+    Versand:
+    <span style="margin-top: 5px">
+        <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
+        <p-checkbox name="deliveryOptionsGroup" value="deliveryOption" [value]="deliveryOption"
+                    [(ngModel)]="selectedDeliveryOption" [inputId]="deliveryOption.deliveryName"
+                    (onChange)="unselectAll(deliveryOption)"></p-checkbox>
+        <label for="deliveryOption.deliveryName"
+               title="{{deliveryOption.deliveryDescription}}">{{deliveryOption.deliveryName}}
+          | Preis: {{deliveryOption.deliveryPrice}}€</label>
+      </div></span>
+    <br>
+    Massivität:
+    <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+    <br>
+  </div>
+
+  <div class="row">
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Bestellen" icon="pi pi-check" styleClass="p-button-success"
+              (click)="confirmOrder()"></p-button>
+  </ng-template>
+</p-dialog>
+
+/Confirm Dialog
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"
+                 rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+
+<!--Dialog to Create new Assignment-->
+<p-dialog header="Neuer Auftrag" [(visible)]="displayCreateNewAssignment" [style]="{width: '90vw'}" [modal]="true"
+          [maximizable]="true" [draggable]="true" [resizable]="true">
+  <div class="collumn" style="padding: 0.5rem">
+    Titel:<input type="text" pInputText [(ngModel)]="newAssignment.title" placeholder="Der Name für deine Bestellung"
+                 style="margin-top: 5px"><br>
+    Beschreibung:<textarea [rows]="3" pInputTextarea [(ngModel)]="newAssignment.description"
+                           placeholder="Hier bitte eine genaue Beschreibung der Bestellung eingeben, möglichst mit allen Daten die vorliegen. Wie z.B. Maße usw."
+                           style="margin-top: 5px"></textarea><br>
+      <table>
+        <tr>
+          <th>Farbe</th>
+          <th>Versand</th>
+          <th>Massivität</th>
+        </tr>
+        <tr>
+          <td>
+            <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+          </td>
+          <td>
+          <span style="margin-top: 5px">
+        <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
+        <p-checkbox name="deliveryOptionsGroup" value="deliveryOption" [value]="deliveryOption"
+                    [(ngModel)]="selectedDeliveryOption" [inputId]="deliveryOption.deliveryName"
+                    (onChange)="unselectAll(deliveryOption)"></p-checkbox>
+        <label for="deliveryOption.deliveryName"
+               title="{{deliveryOption.deliveryDescription}}">{{deliveryOption.deliveryName}}
+          | Preis: {{deliveryOption.deliveryPrice}}€</label>
+      </div></span>
+          </td>
+          <td>
+            <p-knob [(ngModel)]="newAssignment.infill"></p-knob>
+          </td>
+        </tr>
+      </table>
+  </div>
+
+  <div class="row">
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button label="Speichern" icon="pi pi-check" styleClass="p-button-success"
+              (click)="confirmAssignment()"></p-button>
+  </ng-template>
+</p-dialog>

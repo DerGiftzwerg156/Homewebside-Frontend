@@ -13,11 +13,11 @@ import {InputTextModule} from "primeng/inputtext";
 import {RegisterComponent} from './core/register/register.component';
 import {HttpClientModule} from "@angular/common/http";
 import {DockModule} from 'primeng/dock';
-import {MainComponent} from './main/main.component';
+import {MainComponent} from './UserSides/AssignmentShow/main.component';
 import {AuthenticationGuard} from "./AuthenticationGuard";
 import {AccordionModule} from "primeng/accordion";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {UserProfileComponent} from './user-profile/user-profile.component';
+import {UserProfileComponent} from './UserSides/user-profile/user-profile.component';
 import {CardModule} from "primeng/card";
 import {DialogModule} from "primeng/dialog";
 import {DataViewModule} from "primeng/dataview";
@@ -40,6 +40,8 @@ import { ActivateAccountComponent } from './core/activate-account/activate-accou
 import { FooterComponent } from './core/footer/footer.component';
 import { DatenschutzComponent } from './core/datenschutz/datenschutz.component';
 import { AgbComponent } from './core/agb/agb.component';
+import { ShopOverviewComponent } from './Shop/shop-overview/shop-overview.component';
+import {ConfirmDialogModule} from "primeng/confirmdialog";
 
 @NgModule({
   declarations: [
@@ -54,35 +56,37 @@ import { AgbComponent } from './core/agb/agb.component';
     ActivateAccountComponent,
     FooterComponent,
     DatenschutzComponent,
-    AgbComponent
+    AgbComponent,
+    ShopOverviewComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    ProgressBarModule,
-    FormsModule,
-    InputTextModule,
-    HttpClientModule,
-    DockModule,
-    AccordionModule,
-    BrowserAnimationsModule,
-    CardModule,
-    DialogModule,
-    DataViewModule,
-    DropdownModule,
-    RatingModule,
-    MenubarModule,
-    MessagesModule,
-    MessageModule,
-    PasswordModule,
-    InputTextareaModule,
-    InputSwitchModule,
-    KnobModule,
-    FileUploadModule,
-    ToastModule,
-    CheckboxModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        ProgressBarModule,
+        FormsModule,
+        InputTextModule,
+        HttpClientModule,
+        DockModule,
+        AccordionModule,
+        BrowserAnimationsModule,
+        CardModule,
+        DialogModule,
+        DataViewModule,
+        DropdownModule,
+        RatingModule,
+        MenubarModule,
+        MessagesModule,
+        MessageModule,
+        PasswordModule,
+        InputTextareaModule,
+        InputSwitchModule,
+        KnobModule,
+        FileUploadModule,
+        ToastModule,
+        CheckboxModule,
+        ConfirmDialogModule
+    ],
   providers: [AuthenticationGuard,MessageService],
   bootstrap: [AppComponent]
 })

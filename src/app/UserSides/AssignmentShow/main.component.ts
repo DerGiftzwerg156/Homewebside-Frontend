@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {LoggerService} from "../../services/logger.service";
-import {AssignmentReplyData} from "../../entitys/AssignmentReplyData";
-import {AssignmentService} from "../../services/assignment.service";
-import {PlaColor} from "../../entitys/PlaColor";
-import {NewAssignmentRequest} from "../../requestTypes/NewAssignmentRequest";
+import {LoggerService} from "../../../services/logger.service";
+import {AssignmentReplyData} from "../../../entitys/AssignmentReplyData";
+import {AssignmentService} from "../../../services/assignment.service";
+import {PlaColor} from "../../../entitys/PlaColor";
+import {NewAssignmentRequest} from "../../../requestTypes/NewAssignmentRequest";
 import {MessageService} from "primeng/api";
 import {PrimeNGConfig} from 'primeng/api';
-import {StandardRequest} from "../../requestTypes/StandardRequest";
-import {DeliveryOption} from "../../entitys/DeliveryOption";
+import {StandardRequest} from "../../../requestTypes/StandardRequest";
+import {DeliveryOption} from "../../../entitys/DeliveryOption";
 
 
 @Component({
@@ -41,11 +41,10 @@ export class MainComponent implements OnInit {
   displayCreateNewAssignment: boolean = false;
 
 
-  constructor(private logger: LoggerService, private assignmentService: AssignmentService, private messageService: MessageService, private primengConfig: PrimeNGConfig) {
+  constructor(private logger: LoggerService, private assignmentService: AssignmentService) {
   }
 
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
     this.newAssignment = new NewAssignmentRequest(null, null, null, null, 50, null);
     this.getColorsAndDeliveryOptions()
     this.getAssignments()
@@ -95,6 +94,5 @@ export class MainComponent implements OnInit {
 
   unselectAll(deliveryOption: DeliveryOption) {
     this.selectedDeliveryOption = [deliveryOption]
-
   }
 }
