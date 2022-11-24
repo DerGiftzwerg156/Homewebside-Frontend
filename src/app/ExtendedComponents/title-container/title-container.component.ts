@@ -18,6 +18,16 @@ export class TitleContainerComponent implements OnInit {
   ngOnInit(): void {
     this.itemsWhenLoggedIn = [
       {
+        label: 'Shop',
+        icon: 'pi pi-shopping-cart',
+        routerLink: '/shop'
+      },
+      {
+        label: 'News',
+        icon: 'pi pi-bell',
+        routerLink: '/news'
+      },
+      {
         label: 'Profil',
         icon: 'pi pi-user',
         items: [{
@@ -27,6 +37,11 @@ export class TitleContainerComponent implements OnInit {
 
         },
           {
+            label: 'Meine Aufträge und Bestellungen',
+            icon: 'pi pi-wallet',
+            routerLink: '/profile',
+          },
+          {
             label: 'Abmelden',
             icon: 'pi pi-lock',
             routerLink: '/logout'
@@ -34,6 +49,16 @@ export class TitleContainerComponent implements OnInit {
       }
     ]
     this.itemsWhenLoggedOut = [
+      {
+        label: 'Shop',
+        icon: 'pi pi-shopping-cart',
+        routerLink: '/shop'
+      },
+      {
+        label: 'News',
+        icon: 'pi pi-bell',
+        routerLink: '/news'
+      },
       {
         label: 'Login',
         icon: 'pi pi-lock-open',

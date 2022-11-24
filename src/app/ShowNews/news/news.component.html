@@ -1,1 +1,27 @@
-<p>news works!</p>
+<app-title-container></app-title-container>
+<div class="collumn" style="padding-top: .5em">
+
+  <p-card [style]="{'width':'80vw'}" styleClass="p-card-shadow">
+    <div class="cardHeader">
+      <h1>News</h1>
+    </div>
+  </p-card>
+
+  <div *ngFor="let newsItem of news" style="padding-top: 1em">
+    <p-card header="{{newsItem.newsTitle}}" [style]="{'width':'80vw'}" styleClass="p-card-shadow">
+      <ng-template pTemplate="header">
+        <div class="cardHeader">
+          <!--          <img alt="{{newsItem.pictureName}}" src="favicon.ico" style="width: 50%; align-content: center">-->
+          <img alt="{{newsItem.pictureName}}" src="assets/images/News/{{newsItem.pictureName}}"
+               style="width: 50%; align-content: center">
+        </div>
+      </ng-template>
+      <p [innerHTML]="newsItem.newsText"></p>
+      <ng-template pTemplate="footer">
+        <div class="footerContent">
+          Veröffentlicht am: {{newsItem.releaseDate}}
+        </div>
+      </ng-template>
+    </p-card>
+  </div>
+</div>

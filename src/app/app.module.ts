@@ -43,7 +43,8 @@ import { AgbComponent } from './core/agb/agb.component';
 import { ShopOverviewComponent } from './Shop/shop-overview/shop-overview.component';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
 import { NewsComponent } from './ShowNews/news/news.component';
-import { FirstPageComponent } from './first-page/first-page.component';
+import {CarouselModule} from "primeng/carousel";
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -61,36 +62,37 @@ import { FirstPageComponent } from './first-page/first-page.component';
     AgbComponent,
     ShopOverviewComponent,
     NewsComponent,
-    FirstPageComponent
+    LandingPageComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ButtonModule,
-        ProgressBarModule,
-        FormsModule,
-        InputTextModule,
-        HttpClientModule,
-        DockModule,
-        AccordionModule,
-        BrowserAnimationsModule,
-        CardModule,
-        DialogModule,
-        DataViewModule,
-        DropdownModule,
-        RatingModule,
-        MenubarModule,
-        MessagesModule,
-        MessageModule,
-        PasswordModule,
-        InputTextareaModule,
-        InputSwitchModule,
-        KnobModule,
-        FileUploadModule,
-        ToastModule,
-        CheckboxModule,
-        ConfirmDialogModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonModule,
+    ProgressBarModule,
+    FormsModule,
+    InputTextModule,
+    HttpClientModule,
+    DockModule,
+    AccordionModule,
+    BrowserAnimationsModule,
+    CardModule,
+    DialogModule,
+    DataViewModule,
+    DropdownModule,
+    RatingModule,
+    MenubarModule,
+    MessagesModule,
+    MessageModule,
+    PasswordModule,
+    InputTextareaModule,
+    InputSwitchModule,
+    KnobModule,
+    FileUploadModule,
+    ToastModule,
+    CheckboxModule,
+    ConfirmDialogModule,
+    CarouselModule
+  ],
   providers: [AuthenticationGuard,MessageService],
   bootstrap: [AppComponent]
 })
