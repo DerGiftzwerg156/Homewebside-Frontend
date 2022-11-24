@@ -3,6 +3,10 @@
 </div>
 
 <div class="card">
+
+</div>
+<!--Card für Produkt Übersicht-->
+<div class="card">
   <p-dataView #dv [value]="products" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
               [sortOrder]="sortOrder" layout="grid">
     <ng-template pTemplate="header">
@@ -84,7 +88,7 @@
   </ng-template>
 </p-dialog>
 
-/Confirm Dialog
+<!--Confirm Dialog-->
 <p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"
                  rejectButtonStyleClass="p-button-text"></p-confirmDialog>
 

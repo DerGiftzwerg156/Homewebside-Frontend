@@ -42,6 +42,8 @@ import { DatenschutzComponent } from './core/datenschutz/datenschutz.component';
 import { AgbComponent } from './core/agb/agb.component';
 import { ShopOverviewComponent } from './Shop/shop-overview/shop-overview.component';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
+import { NewsComponent } from './ShowNews/news/news.component';
+import { FirstPageComponent } from './first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import {ConfirmDialogModule} from "primeng/confirmdialog";
     FooterComponent,
     DatenschutzComponent,
     AgbComponent,
-    ShopOverviewComponent
+    ShopOverviewComponent,
+    NewsComponent,
+    FirstPageComponent
   ],
     imports: [
         BrowserModule,

@@ -10,9 +10,13 @@ import {ActivateAccountComponent} from "./core/activate-account/activate-account
 import {DatenschutzComponent} from "./core/datenschutz/datenschutz.component";
 import {AgbComponent} from "./core/agb/agb.component";
 import {ShopOverviewComponent} from "./Shop/shop-overview/shop-overview.component";
+import {FirstPageComponent} from "./first-page/first-page.component";
+import {NewsComponent} from "./ShowNews/news/news.component";
 
 const routes: Routes = [
-  {path: '', component: ShopOverviewComponent},
+  {path: '', component: FirstPageComponent},
+  {path: 'news', component: NewsComponent},
+  {path: 'shop', component: ShopOverviewComponent},
   {path: 'datenschutz', component: DatenschutzComponent},
   {path: 'agb', component: AgbComponent},
   {path: 'login', component: LoginComponent},
