@@ -8,8 +8,8 @@ import {NewsReply} from "../replyes/NewsReply";
 })
 export class NewsService {
 
-  // standardUrl: string = window.location.origin + "/api/news"
-  standardUrl: string = "http://localhost:8080/api/news"
+  standardUrl: string = window.location.origin + "/api/news"
+  // standardUrl: string = "http://localhost:8080/api/news"
 
   constructor(private http: HttpClient, private logger: LoggerService) {
   }
