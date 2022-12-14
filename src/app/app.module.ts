@@ -48,6 +48,7 @@ import { LandingPageComponent } from './GenerellSides/landing-page/landing-page.
 import { AssignmentsOverviewComponent } from './admin/assignments-overview/assignments-overview.component';
 import {TableModule} from "primeng/table";
 import {CascadeSelectModule} from "primeng/cascadeselect";
+import {SidebarModule} from "primeng/sidebar";
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import {CascadeSelectModule} from "primeng/cascadeselect";
         ConfirmDialogModule,
         CarouselModule,
         TableModule,
-        CascadeSelectModule
+        CascadeSelectModule,
+        SidebarModule
     ],
   providers: [AuthenticationGuard,MessageService],
   bootstrap: [AppComponent]

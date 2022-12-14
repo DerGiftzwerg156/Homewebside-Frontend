@@ -15,12 +15,16 @@ export class AssignmentsOverviewComponent implements OnInit {
 
   assignments!: AssignmentReplyData[];
 
+  // @ts-ignore
+  selectedAssignment!: AssignmentReplyData = new AssignmentReplyData(null, null, null, null, null, null, null, null);
+
   statusList: string[] = [];
   paymentStatusList: string[] = [];
 
   loading: boolean = true;
 
   @ViewChild('dt') table!: Table;
+  showDialog: boolean = false;
 
   constructor(private logger: LoggerService, private assignmentService: AssignmentService) {
   }
@@ -55,4 +59,8 @@ export class AssignmentsOverviewComponent implements OnInit {
     })
   }
 
+  openAssignmentDetailed(assignment: any) {
+    this.selectedAssignment = assignment;
+    this.showDialog = true;
+  }
 }
