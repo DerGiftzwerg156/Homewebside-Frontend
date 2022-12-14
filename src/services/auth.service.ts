@@ -14,8 +14,8 @@ import {ActivateAccountRequest} from "../requestTypes/ActivateAccountRequest";
 })
 export class AuthService {
 
-  authUrl: string = window.location.origin+"/api/auth"
-  // authUrl: string = "http://localhost:8080/api/auth"
+  // authUrl: string = window.location.origin+"/api/auth"
+  authUrl: string = "http://localhost:8080/api/auth"
 
   constructor(private http: HttpClient, private router: Router, private logger: LoggerService) {
   }
@@ -29,7 +29,8 @@ export class AuthService {
         this.logger.log("login", res)
         this.logger.showSuccess("Erfolgreich angemeldet", res.message)
         sessionStorage.setItem("token", res.token);
-        sessionStorage.setItem("name", res.firstName)
+        sessionStorage.setItem("name", res.firstName);
+        sessionStorage.setItem("role", res.role);
         this.router.navigate(["/"])
       }
     }, error => {

@@ -9,13 +9,14 @@ import {AuthGuardService} from "../services/auth-guard.service";
 import {ActivateAccountComponent} from "./core/activate-account/activate-account.component";
 import {DatenschutzComponent} from "./core/datenschutz/datenschutz.component";
 import {AgbComponent} from "./core/agb/agb.component";
-import {ShopOverviewComponent} from "./Shop/shop-overview/shop-overview.component";
-import {NewsComponent} from "./ShowNews/news/news.component";
-import {LandingPageComponent} from "./landing-page/landing-page.component";
+import {ShopOverviewComponent} from "./GenerellSides/shop-overview/shop-overview.component";
+import {NewsComponent} from "./GenerellSides/news/news.component";
+import {LandingPageComponent} from "./GenerellSides/landing-page/landing-page.component";
+import {AssignmentsOverviewComponent} from "./admin/assignments-overview/assignments-overview.component";
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
-  {path: 'shop',component: ShopOverviewComponent},
+  {path: 'shop', component: ShopOverviewComponent},
   {path: 'news', component: NewsComponent},
   {path: 'datenschutz', component: DatenschutzComponent},
   {path: 'agb', component: AgbComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'activateAccount', component: ActivateAccountComponent},
   {path: 'main', component: MainComponent, canActivate: [AuthGuardService]},
   {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'assignmentOverview', component: AssignmentsOverviewComponent, canActivate: [AuthGuardService]},
   {path: '**', redirectTo: ''}
 ];
 

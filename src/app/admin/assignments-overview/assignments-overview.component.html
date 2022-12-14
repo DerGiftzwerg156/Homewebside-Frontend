@@ -1,0 +1,138 @@
+<div>
+  <app-title-container></app-title-container>
+</div>
+<div>
+  <p-table #dt [value]="assignments" dataKey="id" styleClass="p-datatable-customers"
+           [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]"
+           [loading]="loading" [paginator]="true" [filterDelay]="0"
+           [globalFilterFields]="['title','status','price','deliveryOption.name']">
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        Auftragsliste
+        <span class="p-input-icon-right">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" placeholder="Suche">
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            ID
+            <p-sortIcon field="id"></p-sortIcon>
+            <p-columnFilter type="text" field="id" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="title" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Titel
+            <p-sortIcon field="title"></p-sortIcon>
+            <p-columnFilter type="text" field="title" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="description" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Beschreibung
+            <p-sortIcon field="description"></p-sortIcon>
+            <p-columnFilter type="text" field="description" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="status" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Status
+            <p-sortIcon field="status"></p-sortIcon>
+            <p-columnFilter type="text" field="status" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="paymentStatus" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Paymentstatus
+            <p-sortIcon field="paymentStatus"></p-sortIcon>
+            <p-columnFilter type="text" field="paymentStatus" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="deliveryOption" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Lieferoption
+            <p-sortIcon field="deliveryOption"></p-sortIcon>
+            <p-columnFilter type="text" field="deliveryOption" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="color" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Farbe
+            <p-sortIcon field="color"></p-sortIcon>
+            <p-columnFilter type="text" field="color" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="filamentLength" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Filementlänge
+            <p-sortIcon field="filamentLength"></p-sortIcon>
+            <p-columnFilter type="text" field="filamentLength" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="infill" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Infill
+            <p-sortIcon field="infill"></p-sortIcon>
+            <p-columnFilter type="text" field="infill" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="wattHours" style="min-width: 14rem">
+          <div class="flex justify-content-between align-items-center">
+            Zeit
+            <p-sortIcon field="wattHours"></p-sortIcon>
+            <p-columnFilter type="text" field="wattHours" display="menu" class="ml-auto"></p-columnFilter>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-assignment>
+      <tr class="p-selectable-row">
+        <td>
+          <span class="p-column-title">ID</span>
+          {{assignment.assignmentId}}
+        </td>
+        <td>
+          <span class="p-column-title">Title</span>
+          {{assignment.title}}
+        </td>
+        <td>
+          <span class="p-column-title">Beschreibung</span>
+          {{assignment.description}}
+        </td>
+        <td>
+          <span class="p-column-title">Status</span>
+          <p-dropdown name="assignmentStatus" [options]="statusList"></p-dropdown>
+          {{assignment.status.assignmentStatus}}
+        </td>
+        <td>
+          <span class="p-column-title">Paymentstatus</span>
+          {{assignment.paymentStatus.paymentStatus}}
+        </td>
+        <td>
+          <span class="p-column-title">Lieferoption</span>
+          {{assignment.deliveryOption.deliveryName}}
+        </td>
+        <td>
+          <span class="p-column-title">Farbe</span>
+          {{ assignment.plaColor.color}}
+        </td>
+        <td>
+          <span class="p-column-title">Filementlänge</span>
+          {{assignment.filamentWeight}}
+        </td>
+        <td>
+          <span class="p-column-title">Infill</span>
+          {{assignment.infill}}
+        </td>
+        <td>
+          <span class="p-column-title">Zeit</span>
+          {{assignment.hours}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

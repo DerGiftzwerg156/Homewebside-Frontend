@@ -11,8 +11,9 @@ export class TitleContainerComponent implements OnInit {
 
   itemsWhenLoggedIn!: MenuItem[];
   itemsWhenLoggedOut!: MenuItem[];
+  itemsWhenAdmin!: MenuItem[];
 
-  constructor(private router: Router) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -39,7 +40,7 @@ export class TitleContainerComponent implements OnInit {
           {
             label: 'Meine Aufträge und Bestellungen',
             icon: 'pi pi-wallet',
-            routerLink: '/profile',
+            routerLink: '/main',
           },
           {
             label: 'Abmelden',
@@ -48,6 +49,60 @@ export class TitleContainerComponent implements OnInit {
           }]
       }
     ]
+
+    this.itemsWhenAdmin = [
+      {
+        label: 'Shop',
+        icon: 'pi pi-shopping-cart',
+        routerLink: '/shop'
+      },
+      {
+        label: 'News',
+        icon: 'pi pi-bell',
+        routerLink: '/news'
+      },
+      {
+        label: 'Admin',
+        icon: 'pi pi-id-card',
+        items: [{
+          label: 'Aufträge',
+          icon: 'pi pi-briefcase',
+          routerLink: '/assignmentOverview',
+
+        },
+          {
+            label: 'Produktpflege',
+            icon: 'pi pi-shopping-cart',
+            routerLink: '/main',
+          },
+          {
+            label: 'Newspflege',
+            icon: 'pi pi-hashtag',
+            routerLink: '/logout'
+          }]
+      },
+      {
+        label: 'Profil',
+        icon: 'pi pi-user',
+        items: [{
+          label: 'Einstellungen',
+          icon: 'pi pi-cog',
+          routerLink: '/profile',
+
+        },
+          {
+            label: 'Meine Aufträge und Bestellungen',
+            icon: 'pi pi-wallet',
+            routerLink: '/main',
+          },
+          {
+            label: 'Abmelden',
+            icon: 'pi pi-lock',
+            routerLink: '/logout'
+          }]
+      }
+    ]
+
     this.itemsWhenLoggedOut = [
       {
         label: 'Shop',
@@ -68,5 +123,9 @@ export class TitleContainerComponent implements OnInit {
 
   checkLogin() {
     return sessionStorage.getItem("token") != null;
+  }
+
+  checkAdmin() {
+    return sessionStorage.getItem("role") === 'admin'
   }
 }

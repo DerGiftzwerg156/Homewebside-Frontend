@@ -8,8 +8,8 @@ import {ProductsReply} from "../replyes/ProductsReply";
 })
 export class ProductService {
 
-  url: string = window.location.origin+"/api/products"
-  // url: string = "http://localhost:8080/api/products"
+  // url: string = window.location.origin+"/api/products"
+  url: string = "http://localhost:8080/api/products"
 
   constructor(private logger: LoggerService, private http: HttpClient) {
   }

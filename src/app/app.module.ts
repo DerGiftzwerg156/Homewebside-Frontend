@@ -40,11 +40,14 @@ import { ActivateAccountComponent } from './core/activate-account/activate-accou
 import { FooterComponent } from './core/footer/footer.component';
 import { DatenschutzComponent } from './core/datenschutz/datenschutz.component';
 import { AgbComponent } from './core/agb/agb.component';
-import { ShopOverviewComponent } from './Shop/shop-overview/shop-overview.component';
+import { ShopOverviewComponent } from './GenerellSides/shop-overview/shop-overview.component';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
-import { NewsComponent } from './ShowNews/news/news.component';
+import { NewsComponent } from './GenerellSides/news/news.component';
 import {CarouselModule} from "primeng/carousel";
-import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LandingPageComponent } from './GenerellSides/landing-page/landing-page.component';
+import { AssignmentsOverviewComponent } from './admin/assignments-overview/assignments-overview.component';
+import {TableModule} from "primeng/table";
+import {CascadeSelectModule} from "primeng/cascadeselect";
 
 @NgModule({
   declarations: [
@@ -63,36 +66,39 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     ShopOverviewComponent,
     NewsComponent,
     LandingPageComponent,
+    AssignmentsOverviewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ButtonModule,
-    ProgressBarModule,
-    FormsModule,
-    InputTextModule,
-    HttpClientModule,
-    DockModule,
-    AccordionModule,
-    BrowserAnimationsModule,
-    CardModule,
-    DialogModule,
-    DataViewModule,
-    DropdownModule,
-    RatingModule,
-    MenubarModule,
-    MessagesModule,
-    MessageModule,
-    PasswordModule,
-    InputTextareaModule,
-    InputSwitchModule,
-    KnobModule,
-    FileUploadModule,
-    ToastModule,
-    CheckboxModule,
-    ConfirmDialogModule,
-    CarouselModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ButtonModule,
+        ProgressBarModule,
+        FormsModule,
+        InputTextModule,
+        HttpClientModule,
+        DockModule,
+        AccordionModule,
+        BrowserAnimationsModule,
+        CardModule,
+        DialogModule,
+        DataViewModule,
+        DropdownModule,
+        RatingModule,
+        MenubarModule,
+        MessagesModule,
+        MessageModule,
+        PasswordModule,
+        InputTextareaModule,
+        InputSwitchModule,
+        KnobModule,
+        FileUploadModule,
+        ToastModule,
+        CheckboxModule,
+        ConfirmDialogModule,
+        CarouselModule,
+        TableModule,
+        CascadeSelectModule
+    ],
   providers: [AuthenticationGuard,MessageService],
   bootstrap: [AppComponent]
 })
