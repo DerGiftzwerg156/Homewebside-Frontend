@@ -15,7 +15,7 @@
   </p-card>
 </div>
 
-<p-dialog header="Neues Produkt" [visible]="showNewProductDialog" [style]="{width: '60vw'}" [resizable]="true"
+<p-dialog header="Neues Produkt" [visible]="showNewProductDialog" [style]="{width: '70vw'}" [resizable]="true"
           [draggable]="true">
   <p-card>
     <ng-template pTemplate="content">
@@ -54,6 +54,31 @@
 </p-dialog>
 
 <p-dialog header="Neues Produkt" [visible]="showConfirmDialog" [style]="{width: '60vw'}" [draggable]="true">
+  <ng-template pTemplate="content">
+    <p-dataView [value]="products" [rows]="1" filterBy="name" layout="grid">
+      <ng-template pTemplate="header">
+        Shop
+      </ng-template>
+      <ng-template let-product pTemplate="gridItem">
+        <div class="col-12 md:col-4">
+          <div class="product-grid-item card">
+            <div class="product-grid-item-top">
+            </div>
+            <div class="product-grid-item-content">
+              <div class="product-name">{{product.productName}}</div>
+              <!--Bild später abrufen von Server-->
+              <img src="assets/images/Products/{{product.productPicture}}" [alt]="product.productName">
+              <div class="product-description">{{product.productDescription}}</div>
+            </div>
+            <div class="product-grid-item-bottom">
+              <span class="product-price">{{product.productPrice}} €</span>
+              <p-button label="Produkt bestellen"></p-button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-dataView>
+  </ng-template>
   <ng-template pTemplate="footer">
     <button pButton class="p-button-success" label="Neues Produkt" (click)="storeNewProduct()"></button>
     <button pButton class="p-button-danger" label="Abbrechen"

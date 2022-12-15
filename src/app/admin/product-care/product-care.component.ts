@@ -3,6 +3,7 @@ import {LoggerService} from "../../../services/logger.service";
 import {ProductService} from "../../../services/product.service";
 import {NewProductRequest} from "../../../requestTypes/NewProductRequest";
 import {StandardRequest} from "../../../requestTypes/StandardRequest";
+import {Product} from "../../../entitys/Product";
 
 @Component({
   selector: 'app-product-care',
@@ -20,6 +21,7 @@ export class ProductCareComponent implements OnInit {
   newProductSize!: string;
 
   newProductPictureName!: string;
+  products!: Product[];
 
   constructor(private logger: LoggerService, private productService: ProductService) {
   }
@@ -37,6 +39,7 @@ export class ProductCareComponent implements OnInit {
   }
 
   saveNewProduct() {
+    this.products = [new Product(1, this.newProductName, this.newProductDescription, this.newProductPrice, this.newProductSize, this.newProductPictureName)]
     this.showNewProductDialog = false;
     this.showConfirmDialog = true;
   }
