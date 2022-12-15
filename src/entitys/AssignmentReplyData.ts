@@ -12,8 +12,8 @@ export class AssignmentReplyData {
   title: string;
   description: string;
   infill: number;
-  filamentWeight: number;
-  hours: number;
+  filamentLength: number;
+  wattHours: number;
   price: number;
 
   deliveryOption: DeliveryOption
@@ -26,8 +26,8 @@ export class AssignmentReplyData {
     this.paymentStatus = paymentStatus;
     this.title = title;
     this.description = description;
-    this.filamentWeight = filamentLength;
-    this.hours = wattHours;
+    this.filamentLength = filamentLength;
+    this.wattHours = wattHours;
     this.price = price;
     this.infill = infill;
     this.deliveryOption = deliveryOption;

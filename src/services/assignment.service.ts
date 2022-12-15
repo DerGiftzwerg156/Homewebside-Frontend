@@ -7,6 +7,8 @@ import {NewAssignmentRequest} from "../requestTypes/NewAssignmentRequest";
 import {Reply} from "../replyes/Reply";
 import {LoggerService} from "./logger.service";
 import {StatusesReply} from "../replyes/StatusesReply";
+import {AssignmentReplyData} from "../entitys/AssignmentReplyData";
+import {EditAssignmentRequest} from "../requestTypes/EditAssignmentRequest";
 
 @Injectable({
   providedIn: 'root'
@@ -23,19 +25,23 @@ export class AssignmentService {
     return this.http.post<AssignmentsReply>(this.standardUrl + "/getAllUserAssignments", new StandardRequest(sessionStorage.getItem("token")!))
   }
 
-  getAllAssignments(){
-    return this.http.post<AssignmentsReply>(this.standardUrl+"/getAllAssignments", new StandardRequest(sessionStorage.getItem("token")!))
+  getAllAssignments() {
+    return this.http.post<AssignmentsReply>(this.standardUrl + "/getAllAssignments", new StandardRequest(sessionStorage.getItem("token")!))
   }
 
   getColorsAndDeliveryOptions() {
     return this.http.get<ColorAndDeliveryOptionsReply>(this.standardUrl + "/getColorsAndDeliveryOptions")
   }
 
-  getStatusAndPaymentStatusList(){
+  getStatusAndPaymentStatusList() {
     return this.http.get<StatusesReply>(this.standardUrl + "/getStatuses")
   }
 
   saveNewAssignment(newAssignment: NewAssignmentRequest) {
     return this.http.post<Reply>(this.standardUrl + "/createNewAssignment", newAssignment)
+  }
+
+  editAssignment(editAssignmentRequest: EditAssignmentRequest) {
+    return this.http.post<Reply>(this.standardUrl + "/editAssignment", editAssignmentRequest)
   }
 }

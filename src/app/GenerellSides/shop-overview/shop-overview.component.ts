@@ -98,6 +98,7 @@ export class ShopOverviewComponent implements OnInit {
     this.assignmentService.getColorsAndDeliveryOptions().subscribe(res => {
       if (res.reply.status) {
         this.plaColors = res.plaColors;
+        console.log(this.plaColors)
         this.deliveryOptions = res.deliveryOptions;
         this.logger.log("getPlaColors", res.reply)
       } else {

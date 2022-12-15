@@ -15,7 +15,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {DockModule} from 'primeng/dock';
 import {MainComponent} from './UserSides/AssignmentShow/main.component';
 import {AuthenticationGuard} from "./AuthenticationGuard";
-import {AccordionModule} from "primeng/accordion";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {UserProfileComponent} from './UserSides/user-profile/user-profile.component';
 import {CardModule} from "primeng/card";
@@ -47,8 +46,7 @@ import {CarouselModule} from "primeng/carousel";
 import { LandingPageComponent } from './GenerellSides/landing-page/landing-page.component';
 import { AssignmentsOverviewComponent } from './admin/assignments-overview/assignments-overview.component';
 import {TableModule} from "primeng/table";
-import {CascadeSelectModule} from "primeng/cascadeselect";
-import {SidebarModule} from "primeng/sidebar";
+import {AccordionModule} from "primeng/accordion";
 
 @NgModule({
   declarations: [
@@ -97,9 +95,7 @@ import {SidebarModule} from "primeng/sidebar";
         CheckboxModule,
         ConfirmDialogModule,
         CarouselModule,
-        TableModule,
-        CascadeSelectModule,
-        SidebarModule
+        TableModule
     ],
   providers: [AuthenticationGuard,MessageService],
   bootstrap: [AppComponent]
