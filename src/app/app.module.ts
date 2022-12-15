@@ -24,7 +24,7 @@ import {TitleContainerComponent} from './ExtendedComponents/title-container/titl
 import {DropdownModule} from "primeng/dropdown";
 import {RatingModule} from "primeng/rating";
 import {MenubarModule} from "primeng/menubar";
-import { LogoutComponent } from './core/logout/logout.component';
+import {LogoutComponent} from './core/logout/logout.component';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {PasswordModule} from "primeng/password";
@@ -35,18 +35,21 @@ import {FileUploadModule} from "primeng/fileupload";
 import {ToastModule} from "primeng/toast";
 import {CheckboxModule} from "primeng/checkbox";
 import {MessageService} from "primeng/api";
-import { ActivateAccountComponent } from './core/activate-account/activate-account.component';
-import { FooterComponent } from './core/footer/footer.component';
-import { DatenschutzComponent } from './core/datenschutz/datenschutz.component';
-import { AgbComponent } from './core/agb/agb.component';
-import { ShopOverviewComponent } from './GenerellSides/shop-overview/shop-overview.component';
+import {ActivateAccountComponent} from './core/activate-account/activate-account.component';
+import {FooterComponent} from './core/footer/footer.component';
+import {DatenschutzComponent} from './core/datenschutz/datenschutz.component';
+import {AgbComponent} from './core/agb/agb.component';
+import {ShopOverviewComponent} from './GenerellSides/shop-overview/shop-overview.component';
 import {ConfirmDialogModule} from "primeng/confirmdialog";
-import { NewsComponent } from './GenerellSides/news/news.component';
+import {NewsComponent} from './GenerellSides/news/news.component';
 import {CarouselModule} from "primeng/carousel";
-import { LandingPageComponent } from './GenerellSides/landing-page/landing-page.component';
-import { AssignmentsOverviewComponent } from './admin/assignments-overview/assignments-overview.component';
+import {LandingPageComponent} from './GenerellSides/landing-page/landing-page.component';
+import {AssignmentsOverviewComponent} from './admin/assignments-overview/assignments-overview.component';
 import {TableModule} from "primeng/table";
 import {AccordionModule} from "primeng/accordion";
+import {ColorSettingsComponent} from './admin/color-settings/color-settings.component';
+import {ProductCareComponent} from './admin/product-care/product-care.component';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -66,38 +69,41 @@ import {AccordionModule} from "primeng/accordion";
     NewsComponent,
     LandingPageComponent,
     AssignmentsOverviewComponent,
+    ColorSettingsComponent,
+    ProductCareComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ButtonModule,
-        ProgressBarModule,
-        FormsModule,
-        InputTextModule,
-        HttpClientModule,
-        DockModule,
-        AccordionModule,
-        BrowserAnimationsModule,
-        CardModule,
-        DialogModule,
-        DataViewModule,
-        DropdownModule,
-        RatingModule,
-        MenubarModule,
-        MessagesModule,
-        MessageModule,
-        PasswordModule,
-        InputTextareaModule,
-        InputSwitchModule,
-        KnobModule,
-        FileUploadModule,
-        ToastModule,
-        CheckboxModule,
-        ConfirmDialogModule,
-        CarouselModule,
-        TableModule
-    ],
-  providers: [AuthenticationGuard,MessageService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ButtonModule,
+    ProgressBarModule,
+    FormsModule,
+    InputTextModule,
+    HttpClientModule,
+    DockModule,
+    AccordionModule,
+    BrowserAnimationsModule,
+    CardModule,
+    DialogModule,
+    DataViewModule,
+    DropdownModule,
+    RatingModule,
+    MenubarModule,
+    MessagesModule,
+    MessageModule,
+    PasswordModule,
+    InputTextareaModule,
+    InputSwitchModule,
+    KnobModule,
+    FileUploadModule,
+    ToastModule,
+    CheckboxModule,
+    ConfirmDialogModule,
+    CarouselModule,
+    TableModule,
+    InputNumberModule,
+  ],
+  providers: [AuthenticationGuard, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

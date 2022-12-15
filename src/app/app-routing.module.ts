@@ -13,6 +13,8 @@ import {ShopOverviewComponent} from "./GenerellSides/shop-overview/shop-overview
 import {NewsComponent} from "./GenerellSides/news/news.component";
 import {LandingPageComponent} from "./GenerellSides/landing-page/landing-page.component";
 import {AssignmentsOverviewComponent} from "./admin/assignments-overview/assignments-overview.component";
+import {ColorSettingsComponent} from "./admin/color-settings/color-settings.component";
+import {ProductCareComponent} from "./admin/product-care/product-care.component";
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -27,6 +29,8 @@ const routes: Routes = [
   {path: 'main', component: MainComponent, canActivate: [AuthGuardService]},
   {path: 'profile', component: UserProfileComponent, canActivate: [AuthGuardService]},
   {path: 'assignmentOverview', component: AssignmentsOverviewComponent, canActivate: [AuthGuardService]},
+  {path: 'colorAdministration', component: ColorSettingsComponent},
+  {path: 'productCare', component: ProductCareComponent},
   {path: '**', redirectTo: ''}
 ];
 

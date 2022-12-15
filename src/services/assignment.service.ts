@@ -15,8 +15,8 @@ import {EditAssignmentRequest} from "../requestTypes/EditAssignmentRequest";
 })
 export class AssignmentService {
 
-  // standardUrl: string = window.location.origin + "/api/assignments"
-  standardUrl: string = "http://localhost:8080/api/assignments"
+  standardUrl: string = window.location.origin + "/api/assignments"
+  // standardUrl: string = "http://localhost:8080/api/assignments"
 
   constructor(private http: HttpClient, private logger: LoggerService) {
   }

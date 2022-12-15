@@ -1,0 +1,53 @@
+<div>
+  <app-title-container></app-title-container>
+</div>
+<div>
+  <p-card>
+    <ng-template pTemplate="header">
+      <h1>PLA Farbverwaltung</h1>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <p-table [value]="plaColors">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Farbe</th>
+            <th>Verfügbar</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-color>
+          <tr>
+            <td>{{color.color}}</td>
+            <td>
+              <p-inputSwitch [(ngModel)]="color.availability" (onChange)="changeAvailability(color)"></p-inputSwitch>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <p-card>
+        <button pButton pRipple label="Neue PLA Farbe" icon="pi pi-plus" (click)="newPlaColor()"></button>
+      </p-card>
+    </ng-template>
+  </p-card>
+</div>
+
+<p-dialog [visible]="showNewPlaColorDialog" [style]="{width: '40vw'}">
+  <ng-template pTemplate="header">
+    <h1>Neue PLA Farbe</h1>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <p-card>
+      <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="newPlaColorName">
+        <label for="float-input">Farbname</label>
+      </span>
+    </p-card>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button pButton pRipple label="Speichern" icon="pi pi-check" class="p-button-success"
+            (click)="saveNewColor()"></button>
+    <button pButton pRipple label="Abbrechen" icon="pi pi-times" class="p-button-danger"
+            (click)="showNewPlaColorDialog=false"></button>
+  </ng-template>
+</p-dialog>

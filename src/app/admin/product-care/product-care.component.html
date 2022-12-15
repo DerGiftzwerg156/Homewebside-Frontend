@@ -1,0 +1,62 @@
+<div>
+  <app-title-container></app-title-container>
+</div>
+<div>
+  <p-card>
+    <ng-template pTemplate="header">
+      <h1>Produktpflege</h1>
+    </ng-template>
+    <ng-template pTemplate="content">
+
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <button pButton class="p-button-warning" label="Neues Produkt" (click)="newProduct()"></button>
+    </ng-template>
+  </p-card>
+</div>
+
+<p-dialog header="Neues Produkt" [visible]="showNewProductDialog" [style]="{width: '60vw'}" [resizable]="true"
+          [draggable]="true">
+  <p-card>
+    <ng-template pTemplate="content">
+      <p-card header="Produktname">
+      <span class="p-float-label">
+        <input id="float-input" type="text" pInputText [(ngModel)]="newProductName">
+        <label for="float-input">Username</label>
+      </span>
+      </p-card>
+      <p-card header="Produktbeschreibung">
+        <textarea rows="6" cols="100" pInputTextarea [(ngModel)]="newProductDescription"></textarea>
+      </p-card>
+      <p-card header="Preis">
+        <p-inputNumber [(ngModel)]="newProductPrice" mode="currency" inputId="currency-germany" currency="EUR"
+                       locale="de-DE"></p-inputNumber>
+      </p-card>
+      <p-card header="Größe">
+        <span class="p-float-label">
+        <input id="float-input-size" type="text" pInputText [(ngModel)]="newProductSize">
+        <label for="float-input-size">Produktgröße</label>
+      </span>
+      </p-card>
+      <p-card header="Bildnahme">
+        <span class="p-float-label">
+        <input id="float-input-picture" type="text" pInputText [(ngModel)]="newProductPictureName">
+        <label for="float-input-picture">Produktbildname</label>
+      </span>
+      </p-card>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button pButton class="p-button-success" label="Neues Produkt" (click)="saveNewProduct()"></button>
+      <button pButton class="p-button-danger" label="Abbrechen" (click)="showNewProductDialog=false"></button>
+    </ng-template>
+  </p-card>
+</p-dialog>
+
+<p-dialog header="Neues Produkt" [visible]="showConfirmDialog" [style]="{width: '60vw'}" [draggable]="true">
+  <ng-template pTemplate="footer">
+    <button pButton class="p-button-success" label="Neues Produkt" (click)="storeNewProduct()"></button>
+    <button pButton class="p-button-danger" label="Abbrechen"
+            (click)="showConfirmDialog=false; showNewProductDialog=true"></button>
+  </ng-template>
+</p-dialog>

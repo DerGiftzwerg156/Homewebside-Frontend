@@ -71,9 +71,15 @@ export class TitleContainerComponent implements OnInit {
 
         },
           {
+            label: 'Farbverwaltung',
+            icon: 'pi pi-palette',
+            routerLink: '/colorAdministration',
+
+          },
+          {
             label: 'Produktpflege',
             icon: 'pi pi-shopping-cart',
-            routerLink: '/main',
+            routerLink: '/productCare',
           },
           {
             label: 'Newspflege',
