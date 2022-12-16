@@ -94,6 +94,25 @@ export class ShopOverviewComponent implements OnInit {
     });
   }
 
+  saveNewOrder() {
+    this.newAssignment.standardRequest = new StandardRequest(sessionStorage.getItem("token")!);
+    this.newAssignment.title = this.selectedProduct.productName
+    this.newAssignment.description = this.selectedProduct.productDescription
+    this.newAssignment.deliveryOption = this.selectedDeliveryOption[0];
+    this.assignmentService.saveNewAssignment(this.newAssignment).subscribe(res => {
+      if (res.status) {
+        this.displayCreateNewAssignment = false;
+        this.logger.log("saveNewAssignment", res);
+        this.logger.showSuccess("Ihre Bestellanfrage ist erfolgreich bei uns eingagangen", "Wir bearbeiten ihre Anfrage schnellstmöglich.")
+        this.ngOnInit();
+      } else {
+        this.logger.log("saveNewAssignment", res);
+        this.logger.showError("Fehler", "Bei ihrer Bestellung ist ein Fehler aufgetreten, bitte versuchen sie es später erneut.")
+      }
+      this.newAssignment = new NewAssignmentRequest(null, null, null, null, 50, null);
+    });
+  }
+
   getColorsAndDeliveryOptions() {
     this.assignmentService.getColorsAndDeliveryOptions().subscribe(res => {
       if (res.reply.status) {
@@ -122,7 +141,7 @@ export class ShopOverviewComponent implements OnInit {
   }
 
   //Normale Funktionen
-  confirmOrder() {
+  confirmOrder(selectedProduct: Product) {
     this.confirmationService.confirm({
       message: 'Bitte bestätigen sie erneut ihre Bestellung.' +
         '\n\nBitte denken sie daran, das dies nur eine Bestellanfrage ist, die erst noch von uns bestätigt werden muss.' +
@@ -131,6 +150,8 @@ export class ShopOverviewComponent implements OnInit {
       header: 'Bestellbestätigung',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
+        this.saveNewOrder();
+        this.displaySelectedProduct = false;
         //  Logik für neue Bestellung einfügen
       }
     })
@@ -147,7 +168,7 @@ export class ShopOverviewComponent implements OnInit {
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
           this.saveNewAssignment()
-          this.assignmentService.saveNewAssignment(this.newAssignment);
+          // this.
         }
       })
     } else {
