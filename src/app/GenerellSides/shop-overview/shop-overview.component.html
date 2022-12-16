@@ -12,7 +12,7 @@
     <ng-template pTemplate="header">
       <div class="flex flex-column md:flex-row md:justify-content-between">
         <p-dropdown [options]="sortOptions" placeholder="Sortieren nach Preis" (onChange)="onSortChange($event)"
-                    styleClass="mb-2 md:mb-0"></p-dropdown>
+                    styleClass="mb-2 md:mb-0" appendTo="body" [style]="{width: '100%'}"></p-dropdown>
         <p-button *ngIf="checkLogin()" label="Neuer Spezial Auftrag" icon="pi pi-plus"
                   (click)="openNewAssignmentModal()"></p-button>
         <!--        Suche später erneuern-->
@@ -62,7 +62,7 @@
       </tr>
       <tr>
         <td>
-          <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+          <p-dropdown [options]="plaColors" placeholder="Bitte Farbe auswählen" [(ngModel)]="newAssignment.plaColor" optionLabel="color" appendTo="body"></p-dropdown>
         </td>
         <td><span style="margin-top: 5px">
         <div *ngFor="let deliveryOption of deliveryOptions" class="field-checkbox">
@@ -109,7 +109,7 @@
       </tr>
       <tr>
         <td>
-          <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+          <p-dropdown [options]="plaColors" placeholder="Bitte Farbe auswählen" [(ngModel)]="newAssignment.plaColor" optionLabel="color" appendTo="body" [style]="{width: '100%'}"></p-dropdown>
         </td>
         <td>
           <span style="margin-top: 5px">

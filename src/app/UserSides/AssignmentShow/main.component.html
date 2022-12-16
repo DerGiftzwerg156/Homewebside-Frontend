@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <td>
-          <p-dropdown [options]="plaColors" [(ngModel)]="newAssignment.plaColor" optionLabel="color"></p-dropdown>
+          <p-dropdown [options]="plaColors" placeholder="Bitte Farbe auswählen" [(ngModel)]="newAssignment.plaColor" optionLabel="color" appendTo="body" [style]="{width: '100%'}"></p-dropdown>
         </td>
         <td>
           <span style="margin-top: 5px">

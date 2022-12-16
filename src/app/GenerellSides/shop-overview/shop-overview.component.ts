@@ -30,7 +30,7 @@ export class ShopOverviewComponent implements OnInit {
   //Variable for new Assignment
   newAssignment!: NewAssignmentRequest;
   displayCreateNewAssignment: boolean = false;
-  plaColors!: PlaColor[];
+  plaColors: PlaColor[]=[];
   deliveryOptions!: DeliveryOption[];
   selectedDeliveryOption: DeliveryOption[] = []
 
@@ -116,10 +116,12 @@ export class ShopOverviewComponent implements OnInit {
   getColorsAndDeliveryOptions() {
     this.assignmentService.getColorsAndDeliveryOptions().subscribe(res => {
       if (res.reply.status) {
-        this.plaColors = res.plaColors;
-        console.log(this.plaColors)
+        for (let i = 0; i < res.plaColors.length; i++) {
+          if (res.plaColors[i].availability) {
+            this.plaColors.push(res.plaColors[i])
+          }
+        }
         this.deliveryOptions = res.deliveryOptions;
-        this.logger.log("getPlaColors", res.reply)
       } else {
         this.logger.log("getPlaColors", res.reply)
       }
